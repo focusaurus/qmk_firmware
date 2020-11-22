@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // row A
   KC_GESC, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, /*right*/ KC_F6, KC_F7, KC_F8, KC_F9, KC_EQL, KC_BSLS,
   // row B
-  KC_TAB, KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y, /*right*/ KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLSH,
+  KC_TAB, KC_QUOT, KC_LEAD, KC_DOT, KC_P, KC_Y, /*right*/ KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLSH,
   // row C
   LCTL_T(KC_ESC), MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I, /*right*/ KC_D, KC_H, KC_T, KC_N, MT(MOD_LGUI | MOD_LALT, KC_S), KC_MINS,
   // row D
@@ -32,9 +32,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // row A
   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, /*right*/ KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   // row B
-  KC_TRNS, LGUI(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP, KC_TRNS, /*right*/ KC_LCBR, KC_RCBR, KC_TRNS, KC_TRNS, KC_TRNS,
+  KC_TRNS, LGUI(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP, KC_TRNS, /*right*/ KC_LCBR, KC_RCBR, LSFT(KC_GRV), KC_TRNS, KC_TRNS,
   // row C
-  KC_TRNS, KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT, /*right*/ KC_TRNS, KC_LPRN, KC_RPRN, KC_GRV, KC_TRNS, KC_TRNS,
+  KC_TRNS, KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT, /*right*/ KC_TRNS, KC_LPRN, KC_RPRN, KC_SLSH, KC_GRV, KC_TRNS,
   // row D
   KC_TRNS, KC_TRNS, KC_HOME, KC_DOWN, KC_END, KC_PGDN, /*rotary*/ KC_TRNS, KC_TRNS, /*right*/ KC_TRNS, KC_LBRC, KC_RBRC, KC_TRNS, KC_TRNS, KC_TRNS,
   // row E
@@ -124,3 +124,56 @@ void encoder_update_user(uint8_t index, bool clockwise) {
         }
     }
 }
+
+LEADER_EXTERNS();
+
+void matrix_scan_user(void) {
+  LEADER_DICTIONARY() {
+    leading = false;
+    leader_end();
+
+    SEQ_ONE_KEY(KC_LEAD) {
+      SEND_STRING(",");
+    }
+    SEQ_ONE_KEY(KC_SPC) {
+      SEND_STRING(", ");
+    }
+    SEQ_ONE_KEY(KC_DOT) {
+      register_code(KC_F11);
+      unregister_code(KC_F11);
+    }
+    SEQ_ONE_KEY(KC_B) {
+      register_code(KC_F1);
+      unregister_code(KC_F1);
+    }
+    SEQ_ONE_KEY(KC_T) {
+      register_code(KC_F3);
+      unregister_code(KC_F3);
+    }
+    SEQ_ONE_KEY(KC_E) {
+      register_code(KC_F4);
+      unregister_code(KC_F4);
+    }
+    SEQ_ONE_KEY(KC_S) {
+      register_code(KC_F6);
+      unregister_code(KC_F6);
+    }
+    SEQ_ONE_KEY(KC_M) {
+      register_code(KC_F8);
+      unregister_code(KC_F8);
+    }
+    /* SEQ_TWO_KEYS(KC_D, KC_D) { */
+    /*   SEND_STRING(SS_LCTL("a") SS_LCTL("c")); */
+    /* } */
+    /* SEQ_THREE_KEYS(KC_D, KC_D, KC_S) { */
+    /*   SEND_STRING("https://start.duckduckgo.com\n"); */
+    /* } */
+    /* SEQ_TWO_KEYS(KC_A, KC_S) { */
+    /*   register_code(KC_LGUI); */
+    /*   register_code(KC_S); */
+    /*   unregister_code(KC_S); */
+    /*   unregister_code(KC_LGUI); */
+    /* } */
+  }
+}
+
