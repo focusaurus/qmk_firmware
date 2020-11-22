@@ -132,35 +132,49 @@ void matrix_scan_user(void) {
     leading = false;
     leader_end();
 
+    // Tap the key that would be comma in dvorak
+    // (left ring finger top row)
+    // twice in a row to type a literal comma
     SEQ_ONE_KEY(KC_LEAD) {
-      SEND_STRING(",");
+      tap_code(KC_COMM);
     }
+    // 2 commas for emacs
+    SEQ_TWO_KEYS(KC_LEAD, KC_LEAD) {
+      tap_code(KC_COMM);
+      tap_code(KC_COMM);
+    }
+    // Since most of the time I type a comma, it's followed by a space
+    // make the what happens by default
     SEQ_ONE_KEY(KC_SPC) {
       SEND_STRING(", ");
     }
+    // Similar to above but for enter
+    SEQ_ONE_KEY(KC_ENT) {
+      SEND_STRING(",\\n");
+    }
+    // F11 to launch fuzzball gui fuzzy finder
     SEQ_ONE_KEY(KC_DOT) {
-      register_code(KC_F11);
-      unregister_code(KC_F11);
+      tap_code(KC_F11);
     }
+    // b for browser (F1 fkeys)
     SEQ_ONE_KEY(KC_B) {
-      register_code(KC_F1);
-      unregister_code(KC_F1);
+      tap_code(KC_F1);
     }
+    // t for terminal (F3 fkeys)
     SEQ_ONE_KEY(KC_T) {
-      register_code(KC_F3);
-      unregister_code(KC_F3);
+      tap_code(KC_F3);
     }
+    // e for emacs (F4 fkeys)
     SEQ_ONE_KEY(KC_E) {
-      register_code(KC_F4);
-      unregister_code(KC_F4);
+      tap_code(KC_F4);
     }
+    // s for slack (F6 fkeys)
     SEQ_ONE_KEY(KC_S) {
-      register_code(KC_F6);
-      unregister_code(KC_F6);
+      tap_code(KC_F6);
     }
+    // m for music (F8 fkeys)
     SEQ_ONE_KEY(KC_M) {
-      register_code(KC_F8);
-      unregister_code(KC_F8);
+      tap_code(KC_F8);
     }
     /* SEQ_TWO_KEYS(KC_D, KC_D) { */
     /*   SEND_STRING(SS_LCTL("a") SS_LCTL("c")); */
