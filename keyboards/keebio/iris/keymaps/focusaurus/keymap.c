@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // row A
   KC_GESC, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, /*right*/ KC_F6, KC_F7, KC_F8, KC_F9, KC_EQL, KC_BSLS,
   // row B
-  KC_TAB, KC_QUOT, KC_LEAD, KC_DOT, KC_P, KC_Y, /*right*/ KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLSH,
+  KC_TAB, KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y, /*right*/ KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLSH,
   // row C
   LCTL_T(KC_ESC), MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I, /*right*/ KC_D, KC_H, KC_T, KC_N, MT(MOD_LGUI | MOD_LALT, KC_S), KC_MINS,
   // row D
@@ -136,13 +136,13 @@ void matrix_scan_user(void) {
     // (left ring finger top row)
     // twice in a row to type a literal comma
     SEQ_ONE_KEY(KC_LEAD) {
-      tap_code(KC_COMM);
+      tap_code(KC_SCLN);
     }
     // 2 commas for emacs
-    SEQ_TWO_KEYS(KC_LEAD, KC_LEAD) {
-      tap_code(KC_COMM);
-      tap_code(KC_COMM);
-    }
+    /* SEQ_TWO_KEYS(KC_LEAD, KC_LEAD) { */
+    /*   tap_code(KC_COMM); */
+    /*   tap_code(KC_COMM); */
+    /* } */
     // Since most of the time I type a comma, it's followed by a space
     // make the what happens by default
     SEQ_ONE_KEY(KC_SPC) {
