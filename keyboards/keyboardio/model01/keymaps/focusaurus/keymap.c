@@ -44,11 +44,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_VOLD, KC_B, KC_M, KC_W, KC_V, KC_Z, MT(MOD_RSFT, KC_F12),
   // Thumb cluster (left then right on same line moving outermost to innermost)
   MT(MOD_LGUI | MOD_LALT, KC_BSPC), MT(MOD_LGUI | MOD_LALT, KC_BSPC),
-    LT(NAVPUNC, KC_F12), LT(NAVNUM, KC_SPC),
+    LT(NAVPUNC, KC_F11), LT(NAVNUM, KC_SPC),
       OSM(MOD_LGUI), MT(MOD_RALT, KC_ENT),
         OSM(MOD_LSFT), OSM(MOD_RSFT),
   // Palm keys
-  LT(KEEBNAV, KC_F11), LT(KEEBNAV, KC_F11)
+  LT(KEEBNAV, KC_F10), LT(KEEBNAV, KC_F10)
   ),
 [NAVPUNC] = LAYOUT(
   // Row A Left (no innermost column)
