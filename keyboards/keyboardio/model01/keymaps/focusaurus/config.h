@@ -26,3 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NO_ACTION_MACRO
 #define PERMISSIVE_HOLD
 #define TAPPING_TERM 200
+// limits maximum brightness of LEDs to 200 out of 255.
+// If not defined maximum brightness is set to 255
+// https://www.reddit.com/r/olkb/comments/jy3huf/flashed_qmk_on_keyboardio_model_01_but_only_the/gd4ea46?utm_source=share&utm_medium=web2x&context=3
+#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 200

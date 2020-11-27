@@ -27,9 +27,9 @@ enum {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [DVORAK] = LAYOUT(
   // Row A Left (no innermost column)
-  KC_GESC, KC_1, KC_2, KC_3, KC_4, KC_5,
+  KC_GESC, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,
   // Row A Right (no innermost column)
-  KC_6, KC_7, KC_8, KC_9, KC_EQL, KC_BSLS,
+  KC_F6, KC_F7, KC_F8, KC_F9, KC_EQL, KC_BSLS,
   // Row B Left
   KC_TAB, KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y, KC_PGUP,
   // Row B Right
@@ -44,8 +44,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_VOLD, KC_B, KC_M, KC_W, KC_V, KC_Z, MT(MOD_RSFT, KC_F12),
   // Thumb cluster (left then right on same line moving outermost to innermost)
   MT(MOD_LGUI | MOD_LALT, KC_BSPC), MT(MOD_LGUI | MOD_LALT, KC_BSPC),
-    MT(MOD_LGUI, KC_F12), LT(NAVPUNC, KC_SPC),
-      LT(NAVPUNC, KC_ENT), MT(MOD_RALT, KC_ENT),
+    LT(NAVPUNC, KC_F12), LT(NAVNUM, KC_SPC),
+      OSM(MOD_LGUI), MT(MOD_RALT, KC_ENT),
         OSM(MOD_LSFT), OSM(MOD_RSFT),
   // Palm keys
   LT(KEEBNAV, KC_F11), LT(KEEBNAV, KC_F11)
@@ -86,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 [KEEBNAV] = LAYOUT(
   // Row A Left (no innermost column)
-  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+  RESET, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   // Row A Right (no innermost column)
   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   // Row B Left
