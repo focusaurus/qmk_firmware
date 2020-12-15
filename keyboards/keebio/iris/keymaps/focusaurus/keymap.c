@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // row D
   OSM(MOD_LSFT), KC_SCLN, KC_Q, KC_J, KC_K, KC_X, /*rotary*/ KC_HOME, KC_MUTE, /*right*/ KC_B, KC_M, KC_W, KC_V, KC_Z, MT(MOD_RSFT, KC_F12),
   // row E
-  MT(MOD_LGUI | MOD_LALT, KC_BSPC), MT(MOD_LGUI, KC_F11), LT(_NAVPAREN, KC_ENT), /*right*/ LT(3, KC_ENT), LT(2, KC_SPC), KC_RALT
+  MT(MOD_LGUI | MOD_LALT, KC_BSPC), MT(MOD_LGUI, KC_F11), LT(_NAVPAREN, KC_ENT), /*right*/ LT(3, KC_ENT), LT(2, KC_SPC), MT(MOD_RALT, KC_F13)
   ),
 
   [_NAVPAREN] = LAYOUT(
