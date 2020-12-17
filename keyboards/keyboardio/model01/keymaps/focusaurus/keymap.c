@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // Row A Right (no innermost column)
   KC_F6, KC_F7, KC_F8, KC_F9, KC_EQL, KC_BSLS,
   // Row B Left
-  KC_TAB, KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y, KC_PGUP,
+  KC_TAB, KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y, LGUI(LALT(KC_X)),
   // Row B Right
   KC_VOLU, KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLSH,
   // Row C Left
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   MT(MOD_LGUI | MOD_LALT, KC_BSPC), MT(MOD_LGUI | MOD_LALT, KC_BSPC),
     LT(NAVPUNC, KC_F11), LT(NAVNUM, KC_SPC),
       OSM(MOD_LGUI), MT(MOD_RALT, KC_ENT),
-        OSM(MOD_LSFT), OSM(MOD_RSFT),
+        OSM(MOD_LCTL), OSM(MOD_RALT),
   // Palm keys
   LT(KEEBNAV, KC_F10), LT(KEEBNAV, KC_F10)
   ),
