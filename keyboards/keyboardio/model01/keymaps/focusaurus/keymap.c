@@ -18,6 +18,7 @@
 /* layer constants */
 enum {
   DVORAK = 0,
+  OSX,
   NAVPUNC,
   NAVNUM,
   KEEBNAV,
@@ -35,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // Row B Right
   KC_VOLU, KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLSH,
   // Row C Left
-  LCTL_T(KC_ESC), MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I, KC_HOME,
+  LCTL_T(KC_ESC), MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I, TG(OSX),
   // Row C Right
   KC_MUTE, KC_D, KC_H, KC_T, KC_N, MT(MOD_LGUI | MOD_LALT, KC_S), KC_MINS,
   // Row D Left
@@ -45,10 +46,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // Thumb cluster (left then right on same line moving outermost to innermost)
   MT(MOD_LGUI | MOD_LALT, KC_BSPC), MT(MOD_LGUI | MOD_LALT, KC_BSPC),
     LT(NAVPUNC, KC_F11), LT(NAVNUM, KC_SPC),
-      OSM(MOD_LGUI), MT(MOD_RALT, KC_ENT),
-        OSM(MOD_LCTL), OSM(MOD_RALT),
+      OSM(MOD_LCTL), MT(MOD_RALT, KC_ENT),
+        OSM(MOD_LGUI), OSM(MOD_RALT),
   // Palm keys
   LT(KEEBNAV, KC_F10), LT(KEEBNAV, KC_F10)
+  ),
+[OSX] = LAYOUT(
+  // Row A Left (no innermost column)
+  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+  // Row A Right (no innermost column)
+  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+  // Row B Left
+  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+  // Row B Right
+  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+  // Row C Left
+  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+  // Row C Right
+  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+  // Row D Left
+  KC_TRNS, KC_TRNS, KC_TRNS, KC_RBRC, KC_TRNS, KC_TRNS, KC_TRNS,
+  // Row D Right
+  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+  // Thumb cluster (left then right on same line moving outermost to innermost)
+     KC_TRNS,                     KC_TRNS,
+      KC_TRNS,               KC_TRNS,
+         OSM(MOD_LGUI),         KC_TRNS,
+            OSM(MOD_LCTL),   KC_TRNS,
+  // Palm keys
+  KC_TRNS,                KC_TRNS
   ),
 [NAVPUNC] = LAYOUT(
   // Row A Left (no innermost column)
