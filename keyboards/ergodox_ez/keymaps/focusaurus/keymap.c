@@ -15,7 +15,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // row A left (7 keys)
     KC_GESC, KC_GRV, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, //TODO top row something better
     // row A right (7 keys)
-    KC_MUTE, KC_CIRC, KC_AMPR, KC_ASTR, KC_NO, KC_RBRC, KC_BSLS,
+    KC_MUTE, KC_CIRC, KC_AMPR, KC_ASTR, KC_NO, KC_EQL, KC_BSLS,
     // row B left (has inner column) (7 keys)
     KC_TAB, KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y, KC_PGUP,
     // row B right (has inner column) (7 keys)
