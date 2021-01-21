@@ -6,7 +6,7 @@ enum {
   MACOS,
   NAVPUNC,
   NAVNUM,
-  KEEBNAV,
+  NUMNAV,
 };
 // TODO aliases for leader, fuzzball, snippets
 
@@ -37,11 +37,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Thumb row F top right (2 keys)
     KC_F8, KC_F9,
     // Thumb row G just the middle 1U keys (2 keys)
-    TG(MACOS), TG(KEEBNAV),
+    TG(MACOS), TG(NUMNAV),
     // Thumb row H bottom left (mixed 2U 2U 1U) (3 keys)
-    LT(NAVPUNC, KC_F10), OSM(MOD_LCTL), MT(MOD_LGUI, KC_F11),
+    LT(NAVPUNC, KC_F10), OSM(MOD_LCTL), LT(NUMNAV, KC_F11),
     // Thumb row H bottm right (mixed 2U 2U 1U) (3 keys)
-    KC_ENT, LT(KEEBNAV, KC_F10), LT(NAVNUM, KC_SPC)),
+    LT(NUMNAV, KC_ENT), LT(NUMNAV, KC_F10), LT(NAVNUM, KC_SPC)),
   [MACOS] = LAYOUT_ergodox_pretty(
     // All this layer does is swap GUI/CTL on left thumb
     // mostly for copy/paste/new-tab parity
@@ -137,6 +137,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_TRNS, KC_TRNS, KC_TRNS,
    // Thumb row H bottom right (mixed 2U 2U 1U) (3 keys)
    KC_TRNS, KC_TRNS, KC_TRNS),
- [KEEBNAV] = LAYOUT_ergodox_pretty(KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_9, KC_8, KC_7, KC_W, KC_TRNS, KC_TRNS, KC_PGUP, KC_BSPC, KC_SPC, KC_DEL, RGUI(KC_TAB), KC_TRNS, KC_TRNS, KC_0, KC_6, KC_5, KC_4, KC_E, KC_ENT, KC_LEFT, KC_UP, KC_RGHT, KC_TAB, KC_TRNS, KC_TRNS, KC_TRNS, KC_3, KC_2, KC_1, LSFT(KC_Z), KC_TRNS, KC_TRNS, KC_PGDN, KC_HOME, KC_DOWN, KC_END, KC_PGDN, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS)
+ [NUMNAV] = LAYOUT_ergodox_pretty(
+    // row A left (7 keys)
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    // row A right (7 keys)
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    // row B left (has inner column) (7 keys)
+    KC_TRNS, KC_TRNS, KC_9, KC_8, KC_7, KC_W, KC_TRNS,
+    // row B right (has inner column) (7 keys)
+    KC_TRNS, KC_PGUP, KC_BSPC, KC_SPC, KC_DEL, RGUI(KC_TAB), KC_TRNS,
+    // row C left (no inner column) (6 keys)
+    KC_TRNS, KC_0, KC_6, KC_5, KC_4, KC_E,
+    // row C right (no inner column) (6 keys)
+    KC_ENT, KC_LEFT, KC_UP, KC_RGHT, KC_TAB, KC_TRNS,
+    // row D left (has inner column) (7 keys)
+    KC_TRNS, KC_TRNS, KC_3, KC_2, KC_1, LSFT(KC_Z), KC_TRNS,
+    // row D right (has inner column) (7 keys)
+    KC_TRNS, KC_PGDN, KC_HOME, KC_DOWN, KC_END, KC_PGDN, KC_TRNS,
+    // row E left (5 keys)
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    // row E right (5 keys)
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    // Thumb row F top left (2 keys)
+    KC_TRNS, KC_TRNS,
+    // Thumb row F top right (2 keys)
+    KC_TRNS, KC_TRNS,
+    // Thumb row G just the middle 1U keys (2 keys)
+    KC_TRNS, KC_TRNS,
+    // Thumb row H bottom left (mixed 2U 2U 1U) (3 keys)
+    KC_TRNS, KC_TRNS, KC_TRNS,
+    // Thumb row H bottom right (mixed 2U 2U 1U) (3 keys)
+    KC_TRNS, KC_TRNS, KC_TRNS),
 };
 
