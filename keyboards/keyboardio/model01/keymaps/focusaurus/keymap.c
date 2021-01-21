@@ -45,10 +45,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_VOLD, KC_B, KC_M, KC_W, KC_V, KC_Z, MT(MOD_RSFT, KC_F12),
   // Thumb cluster (left then right on same line moving outermost to innermost)
   /* MT(MOD_LGUI | MOD_LALT, KC_BSPC), MT(MOD_LGUI | MOD_LALT, KC_BSPC), */
-  OSM(MOD_LCTL), MT(MOD_LGUI | MOD_LALT, KC_BSPC),
+  OSM(MOD_LGUI), MT(MOD_LGUI | MOD_LALT, KC_BSPC),
     LT(NAVPUNC, KC_F11), LT(NAVNUM, KC_SPC),
-      OSM(MOD_LCTL), MT(MOD_RALT, KC_ENT),
-        OSM(MOD_LGUI), OSM(MOD_RALT),
+      /*BROKEN SWITCH*/OSM(MOD_LCTL), MT(MOD_RALT, KC_ENT),
+        OSM(MOD_LCTL), OSM(MOD_RALT),
   // Palm keys
   LT(KEEBNAV, KC_F10), LT(KEEBNAV, KC_F10)
   ),
@@ -70,10 +70,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // Row D Right
   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   // Thumb cluster (left then right on same line moving outermost to innermost)
-     KC_TRNS,                     KC_TRNS,
+     OSM(MOD_LCTL),                     KC_TRNS,
       KC_TRNS,               KC_TRNS,
          OSM(MOD_LGUI),         KC_TRNS,
-            OSM(MOD_LCTL),   KC_TRNS,
+            OSM(MOD_LGUI),   KC_TRNS,
   // Palm keys
   KC_TRNS,                KC_TRNS
   ),
