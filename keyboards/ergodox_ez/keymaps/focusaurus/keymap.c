@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Thumb row H bottom left (mixed 2U 2U 1U) (3 keys)
     LT(NAVPUNC, KC_F10), OSM(MOD_LCTL), LT(NUMNAV, KC_F11),
     // Thumb row H bottm right (mixed 2U 2U 1U) (3 keys)
-    LT(NUMNAV, KC_ENT), LT(NUMNAV, KC_F10), LT(NAVNUM, KC_SPC)),
+    LT(NUMNAV, KC_F10), LT(NUMNAV, KC_ENT), LT(NAVNUM, KC_SPC)),
   [MACOS] = LAYOUT_ergodox_pretty(
     // All this layer does is swap GUI/CTL on left thumb
     // mostly for copy/paste/new-tab parity
