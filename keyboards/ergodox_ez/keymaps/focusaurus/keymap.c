@@ -13,9 +13,9 @@ enum {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [DVORAK] = LAYOUT_ergodox_pretty(
     // row A left (7 keys)
-    KC_GESC, KC_GRV, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, //TODO top row something better
+    KC_GESC, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_NO,
     // row A right (7 keys)
-    KC_MUTE, KC_CIRC, KC_AMPR, KC_ASTR, KC_NO, KC_EQL, KC_BSLS,
+    KC_MUTE, KC_F6, KC_F7, KC_F8, KC_F9, KC_EQL, KC_BSLS,
     // row B left (has inner column) (7 keys)
     KC_TAB, KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y, KC_PGUP,
     // row B right (has inner column) (7 keys)
@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // row E left (5 keys)
     KC_F1, KC_F2, KC_F3, KC_F4, LALT_T(KC_F5),
     // row E right (5 keys)
-    RALT_T(KC_F10), KC_F11, KC_F12, KC_F13, KC_F14,
+    RALT_T(KC_LEFT), KC_DOWN, KC_UP, KC_RIGHT, LGUI(LALT(KC_X)),
     // Thumb row F top left (2 keys)
     KC_F6, KC_F7,
     // Thumb row F top right (2 keys)
@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // row E left (5 keys)
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     // row E right (5 keys)
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, LGUI(KC_W),
     // Thumb row F top left (2 keys)
     KC_TRNS, KC_TRNS,
     // Thumb row F top right (2 keys)
@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS, KC_TRNS, KC_TRNS),
  [NAVPUNC] = LAYOUT_ergodox_pretty(
     // row A left (7 keys)
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    RESET, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     // row A right (7 keys)
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     // row B left (has inner column) (7 keys)
