@@ -4,11 +4,22 @@
 enum {
   DVORAK = 0,
   MACOS,
-  NAVPUNC,
+  NAVPUN,
   NAVNUM,
   NUMNAV,
 };
-// TODO aliases for leader, fuzzball, snippets
+
+// left thumb cluster layer taps
+#define LEAD_PUN LT(NAVPUN, KC_F10)
+#define FUZZ_NAV LT(NUMNAV, KC_F11)
+
+// right thumb cluster layer taps
+#define LEAD_NAV LT(NUMNAV, KC_F10)
+#define ENT_NAV LT(NUMNAV, KC_ENT)
+#define SPC_NUM LT(NAVNUM, KC_SPC)
+
+// snippets
+#define SNIP_SFT MT(MOD_RSFT, KC_F12)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [DVORAK] = LAYOUT_ergodox_pretty(
@@ -27,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // row D left (has inner column) (7 keys)
     OSM(MOD_LSFT), MT(MOD_LGUI | MOD_LALT, KC_SCLN), KC_Q, KC_J, KC_K, KC_X, KC_PGDN,
     // row D right (has inner column) (7 keys)
-    KC_VOLD, KC_B, KC_M, KC_W, KC_V, KC_Z, MT(MOD_RSFT, KC_F12),
+    KC_VOLD, KC_B, KC_M, KC_W, KC_V, KC_Z, SNIP_SFT,
     // row E left (5 keys)
     KC_F1, KC_F2, KC_F3, KC_F4, LALT_T(KC_F5),
     // row E right (5 keys)
@@ -39,9 +50,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Thumb row G just the middle 1U keys (2 keys)
     TG(MACOS), TG(NUMNAV),
     // Thumb row H bottom left (mixed 2U 2U 1U) (3 keys)
-    LT(NAVPUNC, KC_F10), OSM(MOD_LCTL), LT(NUMNAV, KC_F11),
+    LEAD_PUN, OSM(MOD_LCTL), FUZZ_NAV,
     // Thumb row H bottm right (mixed 2U 2U 1U) (3 keys)
-    LT(NUMNAV, KC_F10), LT(NUMNAV, KC_ENT), LT(NAVNUM, KC_SPC)),
+    LEAD_NAV, ENT_NAV, SPC_NUM),
   [MACOS] = LAYOUT_ergodox_pretty(
     // All this layer does is swap GUI/CTL on left thumb
     // mostly for copy/paste/new-tab parity
@@ -75,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS, OSM(MOD_LGUI), MT(MOD_LCTL, KC_F11),
     // Thumb row H bottm right (mixed 2U 2U 1U) (3 keys)
     KC_TRNS, KC_TRNS, KC_TRNS),
- [NAVPUNC] = LAYOUT_ergodox_pretty(
+ [NAVPUN] = LAYOUT_ergodox_pretty(
     // row A left (7 keys)
     RESET, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     // row A right (7 keys)
