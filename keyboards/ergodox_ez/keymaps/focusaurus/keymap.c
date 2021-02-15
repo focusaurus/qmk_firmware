@@ -18,8 +18,17 @@ enum {
 #define ENT_NAV LT(NUMNAV, KC_ENT)
 #define SPC_NUM LT(NAVNUM, KC_SPC)
 
+
 // snippets
 #define SNIP_SFT MT(MOD_RSFT, KC_F12)
+
+enum {
+  TD_COMMA_F12,
+};
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+  [TD_COMMA_F12] = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_F12),
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [DVORAK] = LAYOUT_ergodox_pretty(
@@ -28,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // row A right (7 keys)
     KC_MUTE, KC_F6, KC_F7, KC_F8, KC_F9, KC_EQL, KC_BSLS,
     // row B left (has inner column) (7 keys)
-    KC_TAB, KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y, KC_PGUP,
+    KC_TAB, KC_QUOT, TD(TD_COMMA_F12), KC_DOT, KC_P, KC_Y, KC_PGUP,
     // row B right (has inner column) (7 keys)
     KC_VOLU, KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLSH,
     // row C left (no inner column) (6 keys)
