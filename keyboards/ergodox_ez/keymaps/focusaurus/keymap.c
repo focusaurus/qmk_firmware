@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // row D right (has inner column) (7 keys)
     KC_VOLD, KC_B, KC_M, KC_W, KC_V, KC_Z, SNIP_SFT,
     // row E left (5 keys)
-    KC_F1, KC_F2, KC_F3, KC_F4, LALT_T(KC_F5),
+    KC_F1, KC_F2, KC_F3, KC_F4, OSM(MOD_LCTL),
     // row E right (5 keys)
     RALT_T(KC_LEFT), KC_DOWN, KC_UP, KC_RIGHT, LGUI(LALT(KC_X)),
     // Thumb row F top left (2 keys)
@@ -57,9 +57,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Thumb row F top right (2 keys)
     KC_F8, KC_F9,
     // Thumb row G just the middle 1U keys (2 keys)
-    TG(MACOS), TG(NUMNAV),
+    TG(MACOS), OSM(MOD_LALT),
     // Thumb row H bottom left (mixed 2U 2U 1U) (3 keys)
-    LEAD_PUN, OSM(MOD_LCTL), FUZZ_NAV,
+    LEAD_PUN, OSM(MOD_LSFT), FUZZ_NAV,
     // Thumb row H bottm right (mixed 2U 2U 1U) (3 keys)
     LEAD_NAV, ENT_NAV, SPC_NUM),
   [MACOS] = LAYOUT_ergodox_pretty(
@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // row D right (has inner column) (7 keys)
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     // row E left (5 keys)
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, OSM(MOD_LGUI),
     // row E right (5 keys)
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, LGUI(KC_W),
     // Thumb row F top left (2 keys)
@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Thumb row G just the middle 1U keys (2 keys)
     KC_TRNS, KC_TRNS,
     // Thumb row H bottom left (mixed 2U 2U 1U) (3 keys)
-    KC_TRNS, OSM(MOD_LGUI), MT(MOD_LCTL, KC_F11),
+    KC_TRNS, KC_TRNS, MT(MOD_LCTL, KC_F11),
     // Thumb row H bottm right (mixed 2U 2U 1U) (3 keys)
     KC_TRNS, KC_TRNS, KC_TRNS),
  [NAVPUN] = LAYOUT_ergodox_pretty(
