@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // row C left (no inner column) (6 keys)
     LCTL_T(KC_ESC), MT(MOD_LGUI | MOD_LALT, KC_A), LALT_T(KC_O), LGUI_T(KC_E), LCTL_T(KC_U), LSFT_T(KC_I),
     // row C right (no inner column) (6 keys)
-    RSFT_T(KC_D), RCTL_T(KC_H), RGUI_T(KC_T), LALT_T(KC_N), KC_S, KC_MINS,
+    KC_D, RCTL_T(KC_H), KC_T, KC_N, KC_S, KC_MINS,
     // row D left (has inner column) (7 keys)
     KC_NO, KC_SCLN, KC_Q, KC_J, KC_K, KC_X, KC_PGDN,
     // row D right (has inner column) (7 keys)
