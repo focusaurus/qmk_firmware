@@ -31,16 +31,16 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 };
 
 enum combos {
-  DOTP_ESC,
-  JK_PIPE,
+  COMBO_ESC,
+  COMBO_PIPE
 };
 
-const uint16_t PROGMEM dotp_combo[] = {KC_DOT, KC_P, COMBO_END};
-const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM combo_esc[] = {KC_DOT, KC_P, COMBO_END};
+const uint16_t PROGMEM combo_pipe[] = {KC_J, KC_K, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  [DOTP_ESC] = COMBO(dotp_combo, KC_ESC),
-  /* [1] = COMBO(jk_combo, KC_PIPE), */
+  [COMBO_ESC] = COMBO(combo_esc, KC_ESC),
+  [COMBO_PIPE] = COMBO(combo_pipe, KC_PIPE)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

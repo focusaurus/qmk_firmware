@@ -1,5 +1,4 @@
-/* Copyright 2021 Peter Lyons
- *
+/* Copyright 2021 Peter Lyons 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 2 of the License, or
@@ -15,6 +14,28 @@
  */
 #include QMK_KEYBOARD_H
 
+enum combos {
+  COMBO_RESET,
+  COMBO_ESC,
+  COMBO_TAB,
+  COMBO_ENT,
+  COMBO_SPC
+};
+
+const uint16_t PROGMEM combo_reset[] = {KC_QUOT, KC_Y, COMBO_END};
+const uint16_t PROGMEM combo_esc[] = {KC_A, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM combo_tab[] = {KC_O, KC_Q, COMBO_END};
+const uint16_t PROGMEM combo_ent[] = {KC_E, KC_J, COMBO_END};
+const uint16_t PROGMEM combo_spc[] = {KC_U, KC_K, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+  [COMBO_RESET] = COMBO(combo_reset, RESET),
+  [COMBO_ESC] = COMBO(combo_esc, KC_ESC),
+  [COMBO_TAB] = COMBO(combo_tab, KC_TAB),
+  [COMBO_ENT] = COMBO(combo_ent, KC_ENT),
+  [COMBO_SPC] = COMBO(combo_spc, KC_SPC)
+};
+
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
     DVORAK,
@@ -26,5 +47,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_QUOT, KC_COMMA, KC_DOT, KC_P, KC_Y,
             KC_A, KC_O, KC_E, KC_U, KC_I,
             KC_SCLN, KC_Q, KC_J, KC_K, KC_X
-    )
+            ),
+    [1] = THUMB(
+            RESET, OSM(MOD_LSFT), OSM(MOD_LGUI), KC_LCTL, KC_NO,
+            KC_ENT, KC_SPC, KC_U, KC_V, KC_NO
+            ),
 };
