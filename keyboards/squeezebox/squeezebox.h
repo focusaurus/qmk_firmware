@@ -27,15 +27,15 @@
  * represents the switch matrix.
  */
 #define LAYOUT( \
-    RA1, RA2, RA3, RA4, RA5, \
-    RB1, RB2, RB3, RB4, RB5, \
-    RC1, RC2, RC3, RC4, RC5, \
-    RTA1, RTA2, RTA3, \
-    RTB1, RTB2, RTB3 \
+    RA5, RA4, RA3, RA2, RA1, \
+    RB5, RB4, RB3, RB2, RB1, \
+    RC5, RC4, RC3, RC2, RC1, \
+    RTA3, RTA2, RTA1, RTX2, RTX1, \
+    RTB3, RTB2, RTB1, RTX4, RTX3 \
 ) { \
     { RA1, RA2, RA3, RA4, RA5 }, \
     { RB1, RB2, RB3, RB4, RB5 }, \
     { RC1, RC2, RC3, RC4, RC5 }, \
-    { RTA1, RTA2, RTA3 }, \
-    { RTB1, RTB2, RTB3 } \
+    { RTA1, RTA2, RTA3, RTX2, RTX1 }, \
+    { RTB1, RTB2, RTB3, RTX4, RTX3 } \
 }
