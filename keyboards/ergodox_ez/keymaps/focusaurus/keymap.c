@@ -23,11 +23,13 @@ enum {
 #define SNIP_SFT MT(MOD_RSFT, KC_F12)
 
 enum {
-  TD_COMMA_F12,
+  TD_COMMA,
+  TD_SEMI
 };
 
 qk_tap_dance_action_t tap_dance_actions[] = {
-  [TD_COMMA_F12] = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_F12),
+  [TD_COMMA] = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_F12),
+  [TD_SEMI] = ACTION_TAP_DANCE_DOUBLE(KC_COLN, KC_SCLN)
 };
 
 enum combos {
@@ -50,17 +52,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // row A right (7 keys)
     KC_MUTE, KC_F6, KC_F7, KC_F8, KC_F9, KC_EQL, KC_BSLS,
     // row B left (has inner column) (7 keys)
-    KC_TAB, KC_QUOT, TD(TD_COMMA_F12), KC_DOT, KC_P, KC_Y, KC_PGUP,
+    KC_TAB, KC_QUOT, TD(TD_COMMA), KC_DOT, KC_P, KC_Y, KC_PGUP,
     // row B right (has inner column) (7 keys)
     KC_VOLU, KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLSH,
     // row C left (no inner column) (6 keys)
-    LCTL_T(KC_ESC), MT(MOD_LGUI | MOD_LALT, KC_A), LALT_T(KC_O), LGUI_T(KC_E), LCTL_T(KC_U), LSFT_T(KC_I),
+    LCTL_T(KC_ESC), MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
     // row C right (no inner column) (6 keys)
-    KC_D, RCTL_T(KC_H), KC_T, KC_N, KC_S, KC_MINS,
+    KC_D, KC_H, KC_T, KC_N, KC_S, KC_MINS,
     // row D left (has inner column) (7 keys)
-    KC_NO, KC_SCLN, KC_Q, KC_J, KC_K, KC_X, KC_PGDN,
+    KC_NO, TD(TD_SEMI), KC_Q, LALT_T(KC_J), LCTL_T(KC_K), KC_X, KC_PGDN,
     // row D right (has inner column) (7 keys)
-    KC_VOLD, KC_B, KC_M, KC_W, KC_V, KC_Z, SNIP_SFT,
+    KC_VOLD, KC_B, RCTL_T(KC_M), KC_W, KC_V, KC_Z, SNIP_SFT,
     // row E left (5 keys)
     KC_F1, KC_F2, KC_F3, KC_F4, OSM(MOD_LCTL),
     // row E right (5 keys)

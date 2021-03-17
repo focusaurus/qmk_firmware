@@ -44,12 +44,10 @@ enum layer_names {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [DVORAK] = LAYOUT(
-            KC_QUOT, KC_COMMA, KC_DOT, KC_P, KC_Y,
-            KC_A, KC_O, KC_E, KC_U, KC_I,
-            KC_SCLN, KC_Q, KC_J, KC_K, KC_X
-            ),
-    [1] = THUMB(
-            RESET, OSM(MOD_LSFT), OSM(MOD_LGUI), KC_LCTL, KC_NO,
-            KC_ENT, KC_SPC, KC_U, KC_V, KC_NO
+            KC_F, KC_Q, KC_C, KC_R, KC_L,
+            KC_D, KC_H, KC_T, KC_N, KC_S,
+            KC_B, KC_M, KC_W, KC_V, KC_Z,
+            OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LGUI),
+            KC_ENT, KC_SPC, KC_BSPC
             ),
 };
