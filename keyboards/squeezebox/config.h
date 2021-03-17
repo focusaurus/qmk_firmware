@@ -3,14 +3,14 @@
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID    0xFEED
-#define PRODUCT_ID   0x0000
-#define DEVICE_VER   0x0001
+#define VENDOR_ID    0xEE01
+#define PRODUCT_ID   0x0001
+#define DEVICE_VER   0x0002
 #define MANUFACTURER Peter Lyons
 #define PRODUCT      squeezebox
 
 /* key matrix size */
-#define MATRIX_ROWS 3
+#define MATRIX_ROWS 5
 #define MATRIX_COLS 5
 #define COMBO_COUNT 5
 #define COMBO_TERM 400
@@ -25,16 +25,16 @@
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_ROW_PINS { F4, F5, F6 }
-#define MATRIX_COL_PINS { B6, B2, B3, B1, F7 }
-#define MATRIX_ROW_PINS_RIGHT { D4, C6 }
-#define MATRIX_COL_PINS_RIGHT { D7, E6, B4, B5 }
+#define MATRIX_ROW_PINS { B1, B3, F7, F6, F5 }
+#define MATRIX_COL_PINS { B4, E6, D7, C6, D4 }
+// #define MATRIX_ROW_PINS_RIGHT { D4, C6 }
+// #define MATRIX_COL_PINS_RIGHT { D7, E6, B4, B5 }
 // #define DIRECT_PINS_RIGHT { { D4, C6 }, { D7, E6, B4, B5 } }
 
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL */
-#define DIODE_DIRECTION ROW2COL
+// #define DIODE_DIRECTION ROW2COL
 
 /*
  * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.

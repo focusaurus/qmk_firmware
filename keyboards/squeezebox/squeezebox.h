@@ -27,19 +27,15 @@
  * represents the switch matrix.
  */
 #define LAYOUT( \
-    k04, k03, k02, k01, k00, \
-    k09, k08, k07, k06, k05, \
-    k14, k13, k12, k11, k10 \
+    RA5, RA4, RA3, RA2, RA1, \
+    RB5, RB4, RB3, RB2, RB1, \
+    RC5, RC4, RC3, RC2, RC1, \
+    RTA3, RTA2, RTA1, \
+    RTB3, RTB2, RTB1 \
 ) { \
-    { k04, k03, k02, k01, k00 }, \
-    { k09, k08, k07, k06, k05 }, \
-    { k14, k13, k12, k11, k10 } \
-}
-
-#define THUMB( \
-  k15, k16, k17, k18, k19, \
-  k20, k21, k22, k23, k24 \
-) { \
-  { k15, k16, k17, k18, k19 }, \
-  { k20, k21, k22, k23, k24 } \
+    { RTB1, RTB2, RTB3 }, \
+    { RTA1, RTA2, RTA3 }, \
+    { RC1, RC2, RC3, RC4, RC5 }, \
+    { RB1, RB2, RB3, RB4, RB5 }, \
+    { RA1, RA2, RA3, RA4, RA5 }\
 }
