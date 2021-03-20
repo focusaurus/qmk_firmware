@@ -14,6 +14,27 @@
  */
 #include QMK_KEYBOARD_H
 
+#define LEAD_PUN LT(NAVPUN, KC_F10)
+#define FUZZ_NAV LT(NAVPUN, KC_F11)
+#define LEAD_PUN LT(NAVPUN, KC_F10)
+#define ENT_NAV LT(NAVPUN, KC_ENT)
+#define SPC_NUM LT(NAVPUN, KC_SPC)
+
+enum {
+  TD_COMMA,
+  TD_LBRC,
+  TD_RBRC,
+  TD_SEMI
+};
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+  [TD_COMMA] = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_F12),
+  [TD_LBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, LSFT(KC_COMMA)),
+  [TD_RBRC] = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, LSFT(KC_DOT)),
+  [TD_SEMI] = ACTION_TAP_DANCE_DOUBLE(KC_COLN, KC_SCLN)
+};
+
+
 enum combos {
   COMBO_RESET,
   COMBO_ESC,
@@ -39,6 +60,10 @@ combo_t key_combos[COMBO_COUNT] = {
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
     DVORAK,
+    MACOS,
+    NAVPUN,
+    /* NAVNUM, */
+    /* NUMNAV, */
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -47,7 +72,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_F, KC_Q, KC_C, KC_R, KC_L,
             KC_D, KC_H, KC_T, KC_N, KC_S,
             KC_B, KC_M, KC_W, KC_V, KC_Z,
-            KC_A, KC_B, KC_C, KC_NO, KC_NO,
-            KC_F, KC_G, KC_H, KC_NO, KC_NO
+            OSM(MOD_LCTL), OSM(MOD_LSFT), KC_BSPC,
+            ENT_NAV, SPC_NUM, LEAD_PUN
+            /* KC_A, KC_B, KC_C, */
+            /* KC_D, KC_E, KC_F */
+            ),
+    [MACOS] = LAYOUT(
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            OSM(MOD_LGUI), KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS
+            ),
+    [NAVPUN] = LAYOUT(
+            KC_TRNS, KC_LCBR, KC_RCBR, LSFT(KC_GRV), KC_EQL,
+            KC_TRNS, KC_LPRN, KC_RPRN, KC_SLSH, KC_GRV,
+            KC_TRNS, TD(TD_LBRC), TD(TD_RBRC), KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS
             ),
 };
