@@ -34,27 +34,35 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   [TD_SEMI] = ACTION_TAP_DANCE_DOUBLE(KC_COLN, KC_SCLN)
 };
 
+const uint16_t PROGMEM combo_enter[] = {KC_E, KC_J, COMBO_END};
+const uint16_t PROGMEM combo_escape[] = {KC_A, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM combo_question[] = {KC_Q, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_reset[] = {KC_F, KC_L, COMBO_END};
+const uint16_t PROGMEM combo_slash[] = {KC_T, KC_W, COMBO_END};
+const uint16_t PROGMEM combo_space[] = {KC_U, KC_K, COMBO_END};
+const uint16_t PROGMEM combo_tab[] = {KC_O, KC_Q, COMBO_END};
+const uint16_t PROGMEM combo_tilde[] = {KC_H, KC_M, COMBO_END};
 
 enum combos {
+  COMBO_ENTER,
+  COMBO_ESCAPE,
+  COMBO_QUESTION,
   COMBO_RESET,
-  COMBO_ESC,
+  COMBO_SLASH,
+  COMBO_SPACE,
   COMBO_TAB,
-  COMBO_ENT,
-  COMBO_SPC
+  COMBO_TILDE,
 };
 
-const uint16_t PROGMEM combo_reset[] = {KC_QUOT, KC_Y, COMBO_END};
-const uint16_t PROGMEM combo_esc[] = {KC_A, KC_SCLN, COMBO_END};
-const uint16_t PROGMEM combo_tab[] = {KC_O, KC_Q, COMBO_END};
-const uint16_t PROGMEM combo_ent[] = {KC_E, KC_J, COMBO_END};
-const uint16_t PROGMEM combo_spc[] = {KC_U, KC_K, COMBO_END};
-
 combo_t key_combos[COMBO_COUNT] = {
+  [COMBO_ENTER] = COMBO(combo_enter, KC_ENT),
+  [COMBO_ESCAPE] = COMBO(combo_escape, KC_ESC),
+  [COMBO_QUESTION] = COMBO(combo_question, KC_QUES),
   [COMBO_RESET] = COMBO(combo_reset, RESET),
-  [COMBO_ESC] = COMBO(combo_esc, KC_ESC),
+  [COMBO_SLASH] = COMBO(combo_slash, KC_SLSH),
+  [COMBO_SPACE] = COMBO(combo_space, KC_SPC),
   [COMBO_TAB] = COMBO(combo_tab, KC_TAB),
-  [COMBO_ENT] = COMBO(combo_ent, KC_ENT),
-  [COMBO_SPC] = COMBO(combo_spc, KC_SPC)
+  [COMBO_TILDE] = COMBO(combo_tilde, KC_TILDE),
 };
 
 // Defines names for use in layer keycodes and the keymap
