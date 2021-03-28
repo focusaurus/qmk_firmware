@@ -77,26 +77,49 @@ enum layer_names {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [DVORAK] = LAYOUT(
-            KC_F, KC_Q, KC_C, KC_R, KC_L,
+            // row A left
+            KC_QUOT, KC_COMMA, KC_DOT, KC_P,
+            // row A right
+            KC_Y, KC_F, KC_G, KC_C, KC_R, KC_L,
+            // row B left
+            KC_A, KC_O, KC_E, KC_I, KC_I,
+            // row B right
             KC_D, KC_H, KC_T, KC_N, KC_S,
+            // row C left
+            KC_SCLN, KC_Q, KC_J, KC_K, KC_X,
+            // row C right
             KC_B, KC_M, KC_W, KC_V, KC_Z,
-            OSM(MOD_LCTL), OSM(MOD_LSFT), KC_BSPC,
-            ENT_NAV, SPC_NUM, LEAD_PUN
-            /* KC_A, KC_B, KC_C, */
-            /* KC_D, KC_E, KC_F */
+            // row thumb A
+            /* OSM(MOD_LCTL), OSM(MOD_LSFT), KC_BSPC, OSM(MOD_LCTL), OSM(MOD_LSFT), KC_BSPC, */
+            // row thumb B
+            /* ENT_NAV, SPC_NUM, LEAD_PUN ENT_NAV, SPC_NUM, LEAD_PUN */
+            KC_A, KC_B, KC_C, KC_G, KC_H, KC_I,
+            KC_D, KC_E, KC_F, KC_J, KC_K, KC_L
             ),
     [MACOS] = LAYOUT(
             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            OSM(MOD_LGUI), KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            OSM(MOD_LGUI), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
             ),
     [NAVPUN] = LAYOUT(
+            // row A left
+            LGUI(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP,
+            // row A right
             KC_TRNS, KC_LCBR, KC_RCBR, LSFT(KC_GRV), KC_EQL,
+            // row B left
+            KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
+            // row B right
             KC_TRNS, KC_LPRN, KC_RPRN, KC_SLSH, KC_GRV,
+            // row C left
+            KC_HOME, KC_HOME, KC_DOWN, KC_END, KC_PGDN,
+            // row C right
             KC_TRNS, TD(TD_LBRC), TD(TD_RBRC), KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
             ),
 };

@@ -10,8 +10,8 @@
 #define PRODUCT      squeezebox
 
 /* key matrix size */
-#define MATRIX_ROWS 5
-#define MATRIX_COLS 5
+#define MATRIX_ROWS 10
+#define MATRIX_COLS 10
 #define COMBO_COUNT 8
 #define COMBO_TERM 400
 
