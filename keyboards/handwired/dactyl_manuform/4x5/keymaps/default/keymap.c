@@ -52,9 +52,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_A, KC_S, KC_D,    KC_F,    KC_G,                                       KC_H, KC_J,    KC_K,    KC_L,   KC_SCLN, \
   KC_Z, KC_X, KC_C,    KC_V,    KC_B,                                       KC_N, KC_M,    KC_COMM, KC_DOT, KC_QUOT, \
               KC_LBRC, KC_RBRC,                                                   KC_MINS, KC_EQL,                   \
-                                      SFT_ESC, CTL_BSPC,  ALT_SPC, SFT_ENT,                                          \
-                                      KC_TAB,  KC_HOME,   KC_END,  KC_DEL,                                           \
-                                      RAISE,   KC_GRV,    KC_LGUI, LOWER
+                                      KC_A, KC_B,  KC_C, KC_D,                                          \
+                                      KC_E,  KC_F,   KC_G,  KC_H,                                           \
+                                      KC_I,   KC_J,    KC_K, KC_L
 ),
 
 /* Raise
