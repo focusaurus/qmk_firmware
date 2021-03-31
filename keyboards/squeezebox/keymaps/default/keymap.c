@@ -68,8 +68,8 @@ combo_t key_combos[COMBO_COUNT] = {
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
     DVORAK,
-    MACOS,
-    NAVPUN,
+    /* MACOS, */
+    /* NAVPUN, */
     /* NAVNUM, */
     /* NUMNAV, */
 };
@@ -77,51 +77,51 @@ enum layer_names {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [DVORAK] = LAYOUT(
-            // row A left
-            KC_QUOT, KC_COMMA, KC_DOT, KC_P,
-            // row B left
-            KC_A, KC_O, KC_E, KC_I, KC_I,
-            // row C left
-            KC_SCLN, KC_Q, KC_J, KC_K, KC_X,
+            /* // row A left */
+            KC_1, KC_2, KC_3, KC_4, KC_5,
+            /* // row B left */
+            KC_6, KC_7, KC_8, KC_9, KC_0,
+            /* // row C left */
+            KC_V, KC_W, KC_X, KC_Y, KC_Z,
             KC_A, KC_B, KC_C,
-            KC_D, KC_E, KC_F,
-            // row A right
-            KC_Y, KC_F, KC_G, KC_C, KC_R, KC_L,
-            // row B right
-            KC_D, KC_H, KC_T, KC_N, KC_S,
-            // row C right
-            KC_B, KC_M, KC_W, KC_V, KC_Z,
-            KC_G, KC_H, KC_I,
-            KC_J, KC_K, KC_L
-            // row thumb A
-            /* OSM(MOD_LCTL), OSM(MOD_LSFT), KC_BSPC, OSM(MOD_LCTL), OSM(MOD_LSFT), KC_BSPC, */
-            // row thumb B
-            /* ENT_NAV, SPC_NUM, LEAD_PUN ENT_NAV, SPC_NUM, LEAD_PUN */
+            KC_D, KC_E, KC_F
+            /* // row A right */
+            /* KC_Y, KC_F, KC_G, KC_C, KC_R, KC_L, */
+            /* // row B right */
+            /* KC_D, KC_H, KC_T, KC_N, KC_S, */
+            /* // row C right */
+            /* KC_B, KC_M, KC_W, KC_V, KC_Z, */
+            /* KC_G, KC_H, KC_I, */
+            /* KC_J, KC_K, KC_L */
+            /* // row thumb A */
+            /* #<{(| OSM(MOD_LCTL), OSM(MOD_LSFT), KC_BSPC, OSM(MOD_LCTL), OSM(MOD_LSFT), KC_BSPC, |)}># */
+            /* // row thumb B */
+            /* #<{(| ENT_NAV, SPC_NUM, LEAD_PUN ENT_NAV, SPC_NUM, LEAD_PUN |)}># */
             ),
-    [MACOS] = LAYOUT(
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            OSM(MOD_LGUI), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
-            ),
-    [NAVPUN] = LAYOUT(
-            // row A left
-            LGUI(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP,
-            // row A right
-            KC_TRNS, KC_LCBR, KC_RCBR, LSFT(KC_GRV), KC_EQL,
-            // row B left
-            KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
-            // row B right
-            KC_TRNS, KC_LPRN, KC_RPRN, KC_SLSH, KC_GRV,
-            // row C left
-            KC_HOME, KC_HOME, KC_DOWN, KC_END, KC_PGDN,
-            // row C right
-            KC_TRNS, TD(TD_LBRC), TD(TD_RBRC), KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
-            ),
+    /* [MACOS] = LAYOUT( */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
+    /*         OSM(MOD_LGUI), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS */
+    /*         ), */
+    /* [NAVPUN] = LAYOUT( */
+    /*         // row A left */
+    /*         LGUI(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP, */
+    /*         // row A right */
+    /*         KC_TRNS, KC_LCBR, KC_RCBR, LSFT(KC_GRV), KC_EQL, */
+    /*         // row B left */
+    /*         KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT, */
+    /*         // row B right */
+    /*         KC_TRNS, KC_LPRN, KC_RPRN, KC_SLSH, KC_GRV, */
+    /*         // row C left */
+    /*         KC_HOME, KC_HOME, KC_DOWN, KC_END, KC_PGDN, */
+    /*         // row C right */
+    /*         KC_TRNS, TD(TD_LBRC), TD(TD_RBRC), KC_TRNS, KC_TRNS, */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS */
+    /*         ), */
 };
