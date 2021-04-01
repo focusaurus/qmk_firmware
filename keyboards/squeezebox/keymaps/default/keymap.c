@@ -60,8 +60,8 @@ combo_t key_combos[COMBO_COUNT] = {
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
     DVORAK,
-    MACOS,
-    NAVPUN,
+    /* MACOS, */
+    /* NAVPUN, */
     /* NAVNUM, */
     /* NUMNAV, */
 };
@@ -69,26 +69,26 @@ enum layer_names {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [DVORAK] = LAYOUT(
-            KC_F, KC_Q, KC_C, KC_R, KC_L,
-            KC_D, KC_H, KC_T, KC_N, KC_S,
-            KC_B, KC_M, KC_W, KC_V, KC_Z,
-            OSM(MOD_LCTL), OSM(MOD_LSFT), KC_BSPC,
-            ENT_NAV, SPC_NUM, LEAD_PUN
-            /* KC_A, KC_B, KC_C, */
-            /* KC_D, KC_E, KC_F */
+            KC_A, KC_B, KC_C, KC_D, KC_E,
+            KC_F, KC_G, KC_H, KC_I, KC_J,
+            KC_K, KC_L, KC_M, KC_N, KC_O,
+            KC_1, KC_2, KC_3,
+            KC_4, KC_5, KC_6
+            /* OSM(MOD_LCTL), OSM(MOD_LSFT), KC_BSPC, */
+            /* ENT_NAV, SPC_NUM, LEAD_PUN */
             ),
-    [MACOS] = LAYOUT(
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            OSM(MOD_LGUI), KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS
-            ),
-    [NAVPUN] = LAYOUT(
-            KC_TRNS, KC_LCBR, KC_RCBR, LSFT(KC_GRV), KC_EQL,
-            KC_TRNS, KC_LPRN, KC_RPRN, KC_SLSH, KC_GRV,
-            KC_TRNS, TD(TD_LBRC), TD(TD_RBRC), KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS
-            ),
+    /* [MACOS] = LAYOUT( */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
+    /*         OSM(MOD_LGUI), KC_TRNS, KC_TRNS, */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS */
+    /*         ), */
+    /* [NAVPUN] = LAYOUT( */
+    /*         KC_TRNS, KC_LCBR, KC_RCBR, LSFT(KC_GRV), KC_EQL, */
+    /*         KC_TRNS, KC_LPRN, KC_RPRN, KC_SLSH, KC_GRV, */
+    /*         KC_TRNS, TD(TD_LBRC), TD(TD_RBRC), KC_TRNS, KC_TRNS, */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS, */
+    /*         KC_TRNS, KC_TRNS, KC_TRNS */
+    /*         ), */
 };
