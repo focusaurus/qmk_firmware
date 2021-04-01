@@ -11,7 +11,7 @@
 
 /* key matrix size */
 #define MATRIX_ROWS 5
-#define MATRIX_COLS 5
+#define MATRIX_COLS 10
 #define COMBO_COUNT 5
 #define COMBO_TERM 400
 
@@ -30,16 +30,21 @@
 // #define MATRIX_ROW_PINS_RIGHT { D4, C6 }
 // #define MATRIX_COL_PINS_RIGHT { D7, E6, B4, B5 }
 // #define DIRECT_PINS_RIGHT { { D4, C6 }, { D7, E6, B4, B5 } }
+/*
+ * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
+ */
+#define SOFT_SERIAL_PIN D1  // or D1, D2, D3, E6
+// #define SPLIT_HAND_MATRIX_GRID F5, D7
+// #define MASTER_RIGHT
+#define SPLIT_USB_DETECT
+
+
 
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL */
 #define DIODE_DIRECTION ROW2COL
 
-/*
- * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
- */
-#define SOFT_SERIAL_PIN D0  // or D1, D2, D3, E6
 
 //#define LED_NUM_LOCK_PIN B0
 //#define LED_CAPS_LOCK_PIN B1
