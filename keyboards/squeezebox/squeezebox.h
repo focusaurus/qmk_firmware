@@ -28,26 +28,26 @@
 */
 #define LAYOUT( \
   LA1, LA2, LA3, LA4, LA5, \
-  RA5, RA4, RA3, RA2, RA1, \
+  RA1, RA2, RA3, RA4, RA5, \
   LB1, LB2, LB3, LB4, LB5, \
-  RB5, RB4, RB3, RB2, RB1, \
+  RB1, RB2, RB3, RB4, RB5, \
   LC1, LC2, LC3, LC4, LC5, \
-  RC5, RC4, RC3, RC2, RC1, \
+  RC1, RC2, RC3, RC4, RC5, \
   LD1, LD2, LD3, \
-  RD3, RD2, RD1, \
+  RD1, RD2, RD3, \
   LE1, LE2, LE3, \
-  RE3, RE2, RE1 \
+  RE1, RE2, RE3 \
 ) { \
+  { RA1, RA2, RA3, RA4, RA5 }, \
+  { RB1, RB2, RB3, RB4, RB5 }, \
+  { RC1, RC2, RC3, RC4, RC5 }, \
+  { KC_NO, KC_NO, RD3, RD2, RD1 }, \
+  { KC_NO, KC_NO, RE3, RE2, RE1 }, \
   { LA1, LA2, LA3, LA4, LA5 }, \
   { LB1, LB2, LB3, LB4, LB5 }, \
   { LC1, LC2, LC3, LC4, LC5 }, \
   { KC_NO, KC_NO, LD1, LD2, LD3 },\
-  { KC_NO, KC_NO, LE1, LE2, LE3 }, \
-  { RA1, RA2, RA3, RA4, RA5 }, \
-  { RB1, RB2, RB3, RB4, RB5 }, \
-  { RC1, RC2, RC3, RC4, RC5 }, \
-  { KC_NO, KC_NO, RD1, RD2, RD3 }, \
-  { KC_NO, KC_NO, RE1, RE2, RE3 } \
+  { KC_NO, KC_NO, LE1, LE2, LE3 } \
 }
 /*
 #define LAYOUT( \
