@@ -41,8 +41,8 @@
   { RA1, RA2, RA3, RA4, RA5 }, \
   { RB1, RB2, RB3, RB4, RB5 }, \
   { RC1, RC2, RC3, RC4, RC5 }, \
-  { KC_NO, KC_NO, RD3, RD2, RD1 }, \
-  { KC_NO, KC_NO, RE3, RE2, RE1 }, \
+  { KC_NO, KC_NO, RD1, RD2, RD3 }, \
+  { KC_NO, KC_NO, RE1, RE2, RE3 }, \
   { LA1, LA2, LA3, LA4, LA5 }, \
   { LB1, LB2, LB3, LB4, LB5 }, \
   { LC1, LC2, LC3, LC4, LC5 }, \
