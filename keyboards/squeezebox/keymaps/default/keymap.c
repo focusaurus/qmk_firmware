@@ -68,8 +68,8 @@ combo_t key_combos[COMBO_COUNT] = {
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
     DVORAK,
-    /* MACOS, */
-    /* NAVPUN, */
+    MACOS,
+    NAVPUN,
     /* NAVNUM, */
     /* NUMNAV, */
 };
@@ -77,6 +77,17 @@ enum layer_names {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [DVORAK] = LAYOUT(
+        KC_QUOTE, KC_COMMA, KC_DOT, KC_P, KC_Y,
+        KC_A, KC_O, KC_E, KC_U, KC_I,
+        KC_SCLN, KC_Q, KC_J, KC_K, KC_X,
+        OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LALT),
+        KC_BSPC, LEAD_PUN, OSM(MOD_LGUI),
+        KC_F, KC_G, KC_C, KC_R, KC_L,
+        KC_D, KC_H, KC_T, KC_N, KC_S,
+        KC_B, KC_M, KC_W, KC_V, KC_Z,
+        OSM(MOD_LALT), OSM(MOD_RSFT), OSM(MOD_RCTL),
+        ENT_NAV, SPC_NUM, LEAD_PUN
+        /*
             LSFT(KC_A), LSFT(KC_B), LSFT(KC_C), LSFT(KC_D), LSFT(KC_E),
             LSFT(KC_F), LSFT(KC_G), LSFT(KC_H), LSFT(KC_I), LSFT(KC_J),
             LSFT(KC_K), LSFT(KC_L), LSFT(KC_M), LSFT(KC_N), LSFT(KC_O),
@@ -87,21 +98,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_K, KC_L, KC_M, KC_N, KC_O,
             KC_1, KC_2, KC_3,
             KC_4, KC_5, KC_6
-            /* OSM(MOD_LCTL), OSM(MOD_LSFT), KC_BSPC, */
-            /* ENT_NAV, SPC_NUM, LEAD_PUN */
+        */
             ),
-    /* [MACOS] = LAYOUT( */
-    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
-    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
-    /*         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
-    /*         OSM(MOD_LGUI), KC_TRNS, KC_TRNS, */
-    /*         KC_TRNS, KC_TRNS, KC_TRNS */
-    /*         ), */
-    /* [NAVPUN] = LAYOUT( */
-    /*         KC_TRNS, KC_LCBR, KC_RCBR, LSFT(KC_GRV), KC_EQL, */
-    /*         KC_TRNS, KC_LPRN, KC_RPRN, KC_SLSH, KC_GRV, */
-    /*         KC_TRNS, TD(TD_LBRC), TD(TD_RBRC), KC_TRNS, KC_TRNS, */
-    /*         KC_TRNS, KC_TRNS, KC_TRNS, */
-    /*         KC_TRNS, KC_TRNS, KC_TRNS */
-    /*         ), */
+    [MACOS] = LAYOUT(
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            OSM(MOD_LGUI), KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, OSM(MOD_LGUI),
+            KC_TRNS, KC_TRNS, KC_TRNS
+            ),
+    [NAVPUN] = LAYOUT(
+            KC_TRNS, KC_BSPC, KC_SPC, KC_DEL, KC_PGUP,
+            KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
+            LCTL(KC_A), KC_HOME, KC_DOWN, KC_END, KC_PGDN,
+            KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_LCBR, KC_RCBR, LSFT(KC_GRV), KC_EQL,
+            KC_TRNS, KC_LPRN, KC_RPRN, KC_SLSH, KC_GRV,
+            KC_TRNS, TD(TD_LBRC), TD(TD_RBRC), KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS
+            ),
 };
