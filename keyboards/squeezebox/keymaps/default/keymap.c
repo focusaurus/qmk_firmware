@@ -22,6 +22,7 @@
 
 enum {
   TD_COMMA,
+  TD_DOT,
   TD_LBRC,
   TD_RBRC,
   TD_SEMI
@@ -29,6 +30,7 @@ enum {
 
 qk_tap_dance_action_t tap_dance_actions[] = {
   [TD_COMMA] = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_F12),
+  [TD_DOT] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_QUES),
   [TD_LBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, LSFT(KC_COMMA)),
   [TD_RBRC] = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, LSFT(KC_DOT)),
   [TD_SEMI] = ACTION_TAP_DANCE_DOUBLE(KC_COLN, KC_SCLN)
@@ -74,14 +76,13 @@ enum layer_names {
     MACOS,
     NAVPUN,
     NAVNUM,
-    /* NUMNAV, */
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [DVORAK] = LAYOUT(
-        KC_QUOTE, KC_COMMA, KC_DOT, KC_P, KC_Y,
-        KC_A, KC_O, KC_E, KC_U, KC_I,
+        KC_QUOTE, KC_COMMA, TD(TD_DOT), KC_P, KC_Y,
+        MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
         TD(TD_SEMI), KC_Q, LALT_T(KC_J), LCTL_T(KC_K), KC_X,
         OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LALT),
         KC_BSPC, LEAD_PUN, OSM(MOD_LGUI),

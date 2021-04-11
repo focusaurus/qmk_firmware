@@ -14,6 +14,11 @@
 #define MATRIX_COLS 5
 #define COMBO_COUNT 9
 #define COMBO_TERM 400
+#define TAPPING_TERM 300
+#define IGNORE_MOD_TAP_INTERRUPT
+#define TAPPING_FORCE_HOLD
+#define PERMISSIVE_HOLD
+#define NO_AUTO_SHIFT_ALPHA
 
 /*
  * Keyboard Matrix Assignments
