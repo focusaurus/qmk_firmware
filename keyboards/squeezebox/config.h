@@ -12,7 +12,7 @@
 /* key matrix size */
 #define MATRIX_ROWS 10
 #define MATRIX_COLS 5
-#define COMBO_COUNT 8
+#define COMBO_COUNT 9
 #define COMBO_TERM 400
 
 /*

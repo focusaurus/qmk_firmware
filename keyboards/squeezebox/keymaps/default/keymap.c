@@ -18,7 +18,7 @@
 #define FUZZ_NAV LT(NAVPUN, KC_F11)
 #define LEAD_PUN LT(NAVPUN, KC_F10)
 #define ENT_NAV LT(NAVPUN, KC_ENT)
-#define SPC_NUM LT(NAVPUN, KC_SPC)
+#define SPC_NUM LT(NAVNUM, KC_SPC)
 
 enum {
   TD_COMMA,
@@ -36,6 +36,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 const uint16_t PROGMEM combo_enter[] = {KC_E, KC_J, COMBO_END};
 const uint16_t PROGMEM combo_escape[] = {KC_A, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM combo_minus[] = {KC_S, KC_Z, COMBO_END};
 const uint16_t PROGMEM combo_question[] = {KC_Q, KC_C, COMBO_END};
 const uint16_t PROGMEM combo_reset[] = {KC_F, KC_L, COMBO_END};
 const uint16_t PROGMEM combo_slash[] = {KC_T, KC_W, COMBO_END};
@@ -46,6 +47,7 @@ const uint16_t PROGMEM combo_tilde[] = {KC_H, KC_M, COMBO_END};
 enum combos {
   COMBO_ENTER,
   COMBO_ESCAPE,
+  COMBO_MINUS,
   COMBO_QUESTION,
   COMBO_RESET,
   COMBO_SLASH,
@@ -57,6 +59,7 @@ enum combos {
 combo_t key_combos[COMBO_COUNT] = {
   [COMBO_ENTER] = COMBO(combo_enter, KC_ENT),
   [COMBO_ESCAPE] = COMBO(combo_escape, KC_ESC),
+  [COMBO_MINUS] = COMBO(combo_minus, KC_MINUS),
   [COMBO_QUESTION] = COMBO(combo_question, KC_QUES),
   [COMBO_RESET] = COMBO(combo_reset, RESET),
   [COMBO_SLASH] = COMBO(combo_slash, KC_SLSH),
@@ -70,7 +73,7 @@ enum layer_names {
     DVORAK,
     MACOS,
     NAVPUN,
-    /* NAVNUM, */
+    NAVNUM,
     /* NUMNAV, */
 };
 
@@ -79,12 +82,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [DVORAK] = LAYOUT(
         KC_QUOTE, KC_COMMA, KC_DOT, KC_P, KC_Y,
         KC_A, KC_O, KC_E, KC_U, KC_I,
-        KC_SCLN, KC_Q, KC_J, KC_K, KC_X,
+        TD(TD_SEMI), KC_Q, LALT_T(KC_J), LCTL_T(KC_K), KC_X,
         OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LALT),
         KC_BSPC, LEAD_PUN, OSM(MOD_LGUI),
         KC_F, KC_G, KC_C, KC_R, KC_L,
         KC_D, KC_H, KC_T, KC_N, KC_S,
-        KC_B, KC_M, KC_W, KC_V, KC_Z,
+        KC_B, RCTL_T(KC_M), KC_W, KC_V, KC_Z,
         OSM(MOD_LALT), OSM(MOD_RSFT), OSM(MOD_RCTL),
         ENT_NAV, SPC_NUM, LEAD_PUN
         /*
@@ -122,6 +125,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TRNS, KC_LPRN, KC_RPRN, KC_SLSH, KC_GRV,
             KC_TRNS, TD(TD_LBRC), TD(TD_RBRC), KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS
+            ),
+    [NAVNUM] = LAYOUT(
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_COMM, KC_7, KC_8, KC_9, KC_TRNS,
+            KC_DOT, KC_4, KC_5, KC_6, KC_0,
+            LSFT(KC_COLN), KC_1, KC_2, KC_3, KC_TRNS,
+            KC_TRNS, KC_TRNS, OSM(MOD_LGUI),
             KC_TRNS, KC_TRNS, KC_TRNS
             ),
 };
