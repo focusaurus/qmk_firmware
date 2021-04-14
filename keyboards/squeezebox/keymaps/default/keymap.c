@@ -92,9 +92,9 @@ enum layer_names {
 
     DVORAK,
     MACOS,
-    PUN2,
     NAVPUN,
     NAVNUM,
+    BANG,
     NAVFKEYS,
 
 };
@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_BSPC, LEAD_PUN, OSM(MOD_LGUI),
         KC_F, KC_G, KC_C, KC_R, KC_L,
         KC_D, KC_H, KC_T, KC_N, KC_S,
-        KC_B, RCTL_T(KC_M), KC_W, KC_V, LT(PUN2, KC_Z),
+        KC_B, RCTL_T(KC_M), KC_W, KC_V, LT(BANG, KC_Z),
         OSM(MOD_LALT), OSM(MOD_RSFT), OSM(MOD_RCTL),
         ENT_NAV, SPC_NUM, LEAD_PUN
 
@@ -142,20 +142,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TRNS, KC_TRNS, KC_TRNS
 
             ),
-    [PUN2] = LAYOUT(
-
-            KC_TRNS, KC_QUES, LSFT(KC_1), KC_PIPE, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS
-
-            ),
     [NAVPUN] = LAYOUT(
 
             KC_TRNS, KC_BSPC, KC_SPC, KC_DEL, KC_PGUP,
@@ -181,6 +167,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_DOT, KC_4, KC_5, KC_6, KC_0,
             LSFT(KC_COLN), KC_1, KC_2, KC_3, KC_TRNS,
             KC_TRNS, KC_TRNS, OSM(MOD_LGUI),
+            KC_TRNS, KC_TRNS, KC_TRNS
+
+            ),
+    [BANG] = LAYOUT(
+
+            KC_TRNS, KC_QUES, LSFT(KC_1), KC_PIPE, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_PIPE, LSFT(KC_7), LSFT(KC_8), LSFT(KC_9), KC_TRNS,
+            KC_MINUS, LSFT(KC_4), LSFT(KC_5), LSFT(KC_6), LSFT(KC_0),
+            LSFT(KC_MINUS), LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS
 
             ),
