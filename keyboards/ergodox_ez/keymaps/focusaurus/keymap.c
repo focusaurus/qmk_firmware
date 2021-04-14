@@ -1,14 +1,5 @@
 #include QMK_KEYBOARD_H
 
-/* layer constants */
-enum {
-  DVORAK = 0,
-  MACOS,
-  NAVPUN,
-  NAVNUM,
-  NUMNAV,
-};
-
 // left thumb cluster layer taps
 #define LEAD_PUN LT(NAVPUN, KC_F10)
 #define FUZZ_NAV LT(NUMNAV, KC_F11)
@@ -23,17 +14,21 @@ enum {
 #define SNIP_SFT MT(MOD_RSFT, KC_F12)
 
 enum {
+
   TD_COMMA,
   TD_LBRC,
   TD_RBRC,
   TD_SEMI
+
 };
 
 qk_tap_dance_action_t tap_dance_actions[] = {
+
   [TD_COMMA] = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_F12),
   [TD_LBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, LSFT(KC_COMMA)),
   [TD_RBRC] = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, LSFT(KC_DOT)),
   [TD_SEMI] = ACTION_TAP_DANCE_DOUBLE(KC_COLN, KC_SCLN)
+
 };
 
 enum combos {
@@ -41,7 +36,7 @@ enum combos {
   COMBO_PIPE
 };
 
-const uint16_t PROGMEM combo_esc[] = {KC_DOT, KC_P, COMBO_END};
+const uint16_t PROGMEM combo_esc[] = {KC_E, KC_U, COMBO_END};
 const uint16_t PROGMEM combo_pipe[] = {KC_J, KC_K, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
@@ -49,8 +44,19 @@ combo_t key_combos[COMBO_COUNT] = {
   [COMBO_PIPE] = COMBO(combo_pipe, KC_PIPE)
 };
 
+/* layer constants */
+enum {
+  DVORAK = 0,
+  MACOS,
+  NAVPUN,
+  NAVNUM,
+  BANG,
+  NUMNAV,
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [DVORAK] = LAYOUT_ergodox_pretty(
+
     // row A left (7 keys)
     KC_GESC, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_NO,
     // row A right (7 keys)
@@ -66,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // row D left (has inner column) (7 keys)
     KC_NO, TD(TD_SEMI), KC_Q, LALT_T(KC_J), LCTL_T(KC_K), KC_X, KC_PGDN,
     // row D right (has inner column) (7 keys)
-    KC_VOLD, KC_B, RCTL_T(KC_M), KC_W, KC_V, KC_Z, SNIP_SFT,
+    KC_VOLD, KC_B, RCTL_T(KC_M), KC_W, KC_V, LT(BANG, KC_Z), SNIP_SFT,
     // row E left (5 keys)
     KC_F1, KC_F2, KC_F3, KC_F4, OSM(MOD_LCTL),
     // row E right (5 keys)
@@ -82,6 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Thumb row H bottm right (mixed 2U 2U 1U) (3 keys)
     LEAD_NAV, ENT_NAV, SPC_NUM),
   [MACOS] = LAYOUT_ergodox_pretty(
+
     // All this layer does is swap GUI/CTL on left thumb
     // mostly for copy/paste/new-tab parity
     // row A left (7 keys)
@@ -115,6 +122,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Thumb row H bottm right (mixed 2U 2U 1U) (3 keys)
     KC_TRNS, KC_TRNS, KC_TRNS),
  [NAVPUN] = LAYOUT_ergodox_pretty(
+
     // row A left (7 keys)
     RESET, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     // row A right (7 keys)
@@ -146,6 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Thumb row H bottm right (mixed 2U 2U 1U) (3 keys)
     KC_TRNS, KC_TRNS, KC_TRNS),
  [NAVNUM] = LAYOUT_ergodox_pretty(
+
    // row A left (7 keys)
    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
    // row A right (7 keys)
@@ -176,7 +185,41 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_TRNS, KC_TRNS, KC_TRNS,
    // Thumb row H bottom right (mixed 2U 2U 1U) (3 keys)
    KC_TRNS, KC_TRNS, KC_TRNS),
+ [BANG] = LAYOUT_ergodox_pretty(
+
+   // row A left (7 keys)
+   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+   // row A right (7 keys)
+   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+   // row B left (has inner column) (7 keys)
+   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+   // row B right (has inner column) (7 keys)
+   KC_TRNS, KC_PIPE, LSFT(KC_7), LSFT(KC_8), LSFT(KC_9), KC_TRNS, KC_TRNS,
+   // row C left (no inner column) (6 keys)
+   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+   // row C right (no inner column) (6 keys)
+   KC_MINUS, LSFT(KC_4), LSFT(KC_5), LSFT(KC_6), LSFT(KC_0), KC_TRNS,
+   // row D left (has inner column) (7 keys)
+   LSFT(KC_MINUS), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+   // row D right (has inner column) (7 keys)
+   KC_TRNS, KC_TRNS, LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), KC_TRNS, KC_TRNS,
+   // row E left (5 keys)
+   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+   // row E right (5 keys)
+   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+   // Thumb row F top left (2 keys)
+   KC_TRNS, KC_TRNS,
+   // Thumb row F top right (2 keys)
+   KC_TRNS, KC_TRNS,
+   // Thumb row G just the middle 1U keys (2 keys)
+   KC_TRNS, KC_TRNS,
+   // Thumb row H bottom left (mixed 2U 2U 1U) (3 keys)
+   KC_TRNS, KC_TRNS, KC_TRNS,
+   // Thumb row H bottom right (mixed 2U 2U 1U) (3 keys)
+   KC_TRNS, KC_TRNS, KC_TRNS),
+
  [NUMNAV] = LAYOUT_ergodox_pretty(
+
     // row A left (7 keys)
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     // row A right (7 keys)
