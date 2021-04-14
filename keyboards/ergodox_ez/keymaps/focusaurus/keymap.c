@@ -130,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // row D left (has inner column) (7 keys)
     KC_TRNS, KC_HOME, KC_HOME, KC_DOWN, KC_END, KC_PGDN, KC_TRNS,
     // row D right (has inner column) (7 keys)
-    KC_TRNS, KC_TRNS, TD(TD_LBRC), TD(TD_RBRC), KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, TD(TD_LBRC), TD(TD_RBRC), KC_BSLS, KC_TRNS, KC_TRNS,
     // row E left (5 keys)
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     // row E right (5 keys)
