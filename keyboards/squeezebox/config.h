@@ -12,7 +12,7 @@
 /* key matrix size */
 #define MATRIX_ROWS 10
 #define MATRIX_COLS 5
-#define COMBO_COUNT 6
+#define COMBO_COUNT 7
 #define COMBO_TERM 400
 #define TAPPING_TERM 300
 #define IGNORE_MOD_TAP_INTERRUPT

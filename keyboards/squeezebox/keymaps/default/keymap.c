@@ -1,6 +1,7 @@
 /* Copyright 2021 Peter Lyons
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
+ *
  * the Free Software Foundation, either version 2 of the License, or
  * (at your option) any later version.
  *
@@ -43,14 +44,15 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 enum combos {
 
   /* COMBO_ENTER, */
+  /* COMBO_MINUS2, */
   /* COMBO_SLASH, */
   /* COMBO_SPACE, */
   /* COMBO_TAB, */
   /* COMBO_TILDE, */
+  COMBO_BACKSLASH,
   COMBO_ESCAPE,
   COMBO_EXCLAMATION,
   COMBO_MINUS,
-  /* COMBO_MINUS2, */
   COMBO_PIPE,
   COMBO_QUESTION,
   COMBO_RESET,
@@ -58,13 +60,14 @@ enum combos {
 };
 
 /* const uint16_t PROGMEM combo_enter[] = {KC_E, KC_J, COMBO_END}; */
+/* const uint16_t PROGMEM combo_minus2[] = {KC_S, KC_Z, COMBO_END}; */
 /* const uint16_t PROGMEM combo_slash[] = {KC_T, KC_W, COMBO_END}; */
 /* const uint16_t PROGMEM combo_space[] = {KC_U, KC_K, COMBO_END}; */
 /* const uint16_t PROGMEM combo_tab[] = {KC_O, KC_Q, COMBO_END}; */
 /* const uint16_t PROGMEM combo_tilde[] = {KC_H, KC_M, COMBO_END}; */
+const uint16_t PROGMEM combo_backslash[] = {KC_SLSH, KC_MINUS, COMBO_END};
 const uint16_t PROGMEM combo_escape[] = {KC_E, KC_U, COMBO_END};
 const uint16_t PROGMEM combo_exclamation[] = {KC_Z, KC_DOT, COMBO_END};
-/* const uint16_t PROGMEM combo_minus2[] = {KC_S, KC_Z, COMBO_END}; */
 const uint16_t PROGMEM combo_minus[] = {KC_Z, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_pipe[] = {KC_Z, KC_P, COMBO_END};
 const uint16_t PROGMEM combo_question[] = {KC_Z, KC_COMMA, COMBO_END};
@@ -78,6 +81,7 @@ combo_t key_combos[COMBO_COUNT] = {
   /* [COMBO_SPACE] = COMBO(combo_space, KC_SPC), */
   /* [COMBO_TAB] = COMBO(combo_tab, KC_TAB), */
   /* [COMBO_TILDE] = COMBO(combo_tilde, KC_TILDE), */
+  [COMBO_BACKSLASH] = COMBO(combo_backslash, KC_BSLS),
   [COMBO_ESCAPE] = COMBO(combo_escape, KC_ESC),
   [COMBO_EXCLAMATION] = COMBO(combo_exclamation, LSFT(KC_1)),
   [COMBO_MINUS] = COMBO(combo_minus, KC_MINUS),
@@ -105,14 +109,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         KC_QUOTE, KC_COMMA, KC_DOT, LT(NAVFKEYS, KC_P), KC_Y,
         MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
-        LT(BANG, LSFT(KC_SCLN)), KC_Q, LALT_T(KC_J), LCTL_T(KC_K), KC_X,
+        LT(BANG, KC_SCLN), LALT_T(KC_Q), LSFT_T(KC_J), LCTL_T(KC_K), KC_X,
         OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LALT),
         KC_BSPC, LEAD_PUN, OSM(MOD_LGUI),
         KC_F, KC_G, KC_C, KC_R, KC_L,
         KC_D, KC_H, KC_T, KC_N, KC_S,
-        KC_B, RCTL_T(KC_M), KC_W, KC_V, LT(BANG, KC_Z),
+        KC_B, RCTL_T(KC_M), RSFT_T(KC_W), LALT_T(KC_V), LT(BANG, KC_Z),
         OSM(MOD_LALT), OSM(MOD_RSFT), OSM(MOD_RCTL),
-        ENT_NAV, SPC_NUM, LEAD_PUN
+        ENT_NAV, SPC_NUM, FUZZ_NAV
 
         /*
             LSFT(KC_A), LSFT(KC_B), LSFT(KC_C), LSFT(KC_D), LSFT(KC_E),
@@ -150,8 +154,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_LCBR, KC_RCBR, LSFT(KC_GRV), LSFT(KC_EQUAL),
-            KC_TRNS, KC_LPRN, KC_RPRN, KC_SLSH, KC_GRV,
-            KC_TRNS, TD(TD_LBRC), TD(TD_RBRC), KC_BSLS, KC_EQUAL,
+            KC_TRNS, KC_LPRN, KC_RPRN, KC_SLSH, KC_MINUS,
+            KC_TRNS, TD(TD_LBRC), TD(TD_RBRC), KC_GRV, LSFT(KC_MINUS),
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS
 
