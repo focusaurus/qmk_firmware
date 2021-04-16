@@ -105,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         KC_QUOTE, KC_COMMA, KC_DOT, LT(NAVFKEYS, KC_P), KC_Y,
         MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
-        TD(TD_SEMI), KC_Q, LALT_T(KC_J), LCTL_T(KC_K), KC_X,
+        LT(BANG, LSFT(KC_SCLN)), KC_Q, LALT_T(KC_J), LCTL_T(KC_K), KC_X,
         OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LALT),
         KC_BSPC, LEAD_PUN, OSM(MOD_LGUI),
         KC_F, KC_G, KC_C, KC_R, KC_L,
@@ -173,8 +173,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BANG] = LAYOUT(
 
             KC_TRNS, KC_QUES, LSFT(KC_1), KC_PIPE, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_MINUS, KC_TRNS, KC_TRNS, KC_MINUS, KC_TRNS,
+            KC_TRNS, KC_SCLN, KC_TRNS, LSFT(KC_MINUS), KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_PIPE, LSFT(KC_7), LSFT(KC_8), LSFT(KC_9), KC_TRNS,
