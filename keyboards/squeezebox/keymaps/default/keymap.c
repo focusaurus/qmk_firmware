@@ -110,9 +110,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
         LT(KBFN, KC_SCLN), KC_Q, KC_J, KC_K, KC_X,
         OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LALT),
-        LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), OSM(MOD_LGUI),
-        KC_F, RCTL_T(KC_G), LALT_T(KC_C), KC_R, KC_L,
+        LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), MT(MOD_LGUI, FUZZBALL),
 
+        KC_F, RCTL_T(KC_G), LALT_T(KC_C), KC_R, KC_L,
         KC_D, KC_H, KC_T, KC_N, KC_S,
         KC_B, KC_M, KC_W, KC_V, KC_Z,
         // TODO if top row mods work out can use these for something else
