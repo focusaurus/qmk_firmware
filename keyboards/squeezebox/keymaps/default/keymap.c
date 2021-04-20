@@ -15,11 +15,9 @@
  */
 #include QMK_KEYBOARD_H
 
-#define LEAD_PUN LT(NAVPUN, KC_F10)
-#define FUZZ_NAV LT(NAVPUN, KC_F11)
-#define LEAD_PUN LT(NAVPUN, KC_F10)
-#define ENT_NAV LT(NAVPUN, KC_ENT)
-#define SPC_NUM LT(NAVNUM, KC_SPC)
+#define LEADER KC_F10
+#define FUZZBALL KC_F11
+#define SNIPPETS KC_F12
 
 enum {
 
@@ -33,11 +31,11 @@ enum {
 
 qk_tap_dance_action_t tap_dance_actions[] = {
 
-  [TD_COMMA] = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_F12),
-  [TD_DOT] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_QUES),
-  [TD_LBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, LSFT(KC_COMMA)),
-  [TD_RBRC] = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, LSFT(KC_DOT)),
-  [TD_SEMI] = ACTION_TAP_DANCE_DOUBLE(KC_COLN, KC_SCLN)
+  /* [TD_COMMA] = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_F12), */
+  /* [TD_DOT] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_QUES), */
+  /* [TD_LBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, LSFT(KC_COMMA)), */
+  /* [TD_RBRC] = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, LSFT(KC_DOT)), */
+  /* [TD_SEMI] = ACTION_TAP_DANCE_DOUBLE(KC_COLON, KC_SCLN) */
 
 };
 
@@ -49,13 +47,14 @@ enum combos {
   /* COMBO_SPACE, */
   /* COMBO_TAB, */
   /* COMBO_TILDE, */
+  /* COMBO_SEMI, */
+  COMBO_COLON,
   COMBO_BACKSPACE,
   COMBO_ESCAPE,
   COMBO_EXCLAMATION,
   COMBO_MINUS,
   COMBO_PIPE,
   COMBO_QUESTION,
-  COMBO_RESET,
 
 };
 
@@ -66,6 +65,7 @@ enum combos {
 /* const uint16_t PROGMEM combo_tab[] = {KC_O, KC_Q, COMBO_END}; */
 /* const uint16_t PROGMEM combo_tilde[] = {KC_H, KC_M, COMBO_END}; */
 const uint16_t PROGMEM combo_backspace[] = {KC_O, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_colon[] = {KC_U, KC_K, COMBO_END};
 const uint16_t PROGMEM combo_escape[] = {KC_E, KC_U, COMBO_END};
 const uint16_t PROGMEM combo_exclamation[] = {KC_Z, KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo_minus[] = {KC_N, KC_S, COMBO_END};
@@ -81,13 +81,13 @@ combo_t key_combos[COMBO_COUNT] = {
   /* [COMBO_SPACE] = COMBO(combo_space, KC_SPC), */
   /* [COMBO_TAB] = COMBO(combo_tab, KC_TAB), */
   /* [COMBO_TILDE] = COMBO(combo_tilde, KC_TILDE), */
+  [COMBO_COLON] = COMBO(combo_colon, KC_COLON),
   [COMBO_BACKSPACE] = COMBO(combo_backspace, KC_BSPC),
   [COMBO_ESCAPE] = COMBO(combo_escape, KC_ESC),
-  [COMBO_EXCLAMATION] = COMBO(combo_exclamation, LSFT(KC_1)),
+  [COMBO_EXCLAMATION] = COMBO(combo_exclamation, KC_EXCLAIM),
   [COMBO_MINUS] = COMBO(combo_minus, KC_MINUS),
   [COMBO_PIPE] = COMBO(combo_pipe, KC_PIPE),
   [COMBO_QUESTION] = COMBO(combo_question, KC_QUES),
-  [COMBO_RESET] = COMBO(combo_reset, RESET),
 
 };
 
@@ -96,10 +96,9 @@ enum layer_names {
 
     DVORAK,
     MACOS,
-    NAVPUN,
     NAVNUM,
     BANG,
-    FKEYS
+    KBFN
 
 };
 
@@ -107,16 +106,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [DVORAK] = LAYOUT(
 
-        KC_QUOTE, KC_COMMA, KC_DOT, LT(FKEYS, KC_P), KC_Y,
+        KC_QUOTE, KC_COMMA, LALT_T(KC_DOT), LCTL_T(KC_P), KC_Y,
         MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
-        LT(BANG, KC_SCLN), LALT_T(KC_Q), LSFT_T(KC_J), LCTL_T(KC_K), KC_X,
+        LT(KBFN, KC_SCLN), KC_Q, KC_J, KC_K, KC_X,
         OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LALT),
-        LT(FKEYS, KC_BSPC), LEAD_PUN, OSM(MOD_LGUI),
-        KC_F, KC_G, KC_C, KC_R, KC_L,
+        LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), OSM(MOD_LGUI),
+        KC_F, RCTL_T(KC_G), LALT_T(KC_C), KC_R, KC_L,
+
         KC_D, KC_H, KC_T, KC_N, KC_S,
-        KC_B, RCTL_T(KC_M), RSFT_T(KC_W), LALT_T(KC_V), LT(BANG, KC_Z),
+        KC_B, KC_M, KC_W, KC_V, KC_Z,
+        // TODO if top row mods work out can use these for something else
         OSM(MOD_LALT), OSM(MOD_RSFT), OSM(MOD_RCTL),
-        ENT_NAV, SPC_NUM, FUZZ_NAV
+        // TODO LE3 available for a better layer
+        KC_ENT, LT(BANG, KC_SPC), KC_ESC
 
         /*
             LSFT(KC_A), LSFT(KC_B), LSFT(KC_C), LSFT(KC_D), LSFT(KC_E),
@@ -146,58 +148,45 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TRNS, KC_TRNS, KC_TRNS
 
             ),
-    [NAVPUN] = LAYOUT(
+    [NAVNUM] = LAYOUT(
 
             KC_TRNS, KC_BSPC, KC_SPC, KC_DEL, KC_PGUP,
             KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
             LCTL(KC_A), KC_HOME, KC_DOWN, KC_END, KC_PGDN,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_PIPE, KC_LCBR, KC_RCBR, LSFT(KC_GRV), LSFT(KC_EQUAL),
-            KC_EQUAL, KC_LPRN, KC_RPRN, KC_SLSH, KC_MINUS,
-            KC_BSLS, TD(TD_LBRC), TD(TD_RBRC), KC_GRV, LSFT(KC_MINUS),
-            KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS
-
-            ),
-    [NAVNUM] = LAYOUT(
-
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_COMM, KC_7, KC_8, KC_9, KC_TRNS,
+            KC_COMM, KC_7, KC_8, KC_9, KC_NO,
             KC_DOT, KC_4, KC_5, KC_6, KC_0,
-            LSFT(KC_COLN), KC_1, KC_2, KC_3, KC_TRNS,
-            KC_TRNS, KC_TRNS, OSM(MOD_LGUI),
+            KC_COLON, KC_1, KC_2, KC_3, KC_NO,
+            KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS
 
             ),
     [BANG] = LAYOUT(
 
-            KC_TRNS, KC_QUES, LSFT(KC_1), KC_PIPE, KC_TRNS,
-            KC_MINUS, KC_TRNS, KC_TRNS, KC_MINUS, KC_TRNS,
-            KC_TRNS, KC_SCLN, KC_TRNS, LSFT(KC_MINUS), KC_TRNS,
+            KC_LT, KC_GT, KC_LCBR, KC_RCBR, KC_PIPE,
+            KC_MINUS, KC_UNDERSCORE, KC_LPRN, KC_RPRN, KC_EXCLAIM,
+            KC_QUES, KC_SCLN, KC_LBRC, KC_RBRC, KC_BSLS,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_PIPE, LSFT(KC_7), LSFT(KC_8), LSFT(KC_9), KC_TRNS,
-            KC_MINUS, LSFT(KC_4), LSFT(KC_5), LSFT(KC_6), LSFT(KC_0),
-            LSFT(KC_MINUS), LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), KC_TRNS,
+
+            KC_SCLN, LSFT(KC_7), LSFT(KC_8), LSFT(KC_EQL), KC_TILDE,
+            KC_GRV, LSFT(KC_4), LSFT(KC_5), LSFT(KC_6), KC_SLSH,
+            KC_COLON, LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), KC_EQL,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS
 
             ),
-    [FKEYS] = LAYOUT(
+    [KBFN] = LAYOUT(
 
-            KC_F12, KC_F9, KC_F8, KC_F7, KC_TRNS,
-            KC_F11, KC_F6, KC_F5, KC_F4, KC_TRNS,
-            KC_F10, KC_F3, KC_F2, KC_F1, KC_TRNS,
+            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+            KC_NO, KC_NO, KC_NO, TG(MACOS), RESET,
+            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_NO, KC_F7, KC_F8, KC_F9, KC_F12,
+            KC_NO, KC_F4, KC_F5, KC_F6, KC_F11,
+            KC_NO, KC_F1, KC_F2, KC_F3, KC_F10,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS
 
