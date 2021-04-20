@@ -165,14 +165,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BANG] = LAYOUT(
 
             KC_LT, KC_GT, KC_LCBR, KC_RCBR, KC_PIPE,
-            KC_MINUS, KC_UNDERSCORE, KC_LPRN, KC_RPRN, KC_EXCLAIM,
-            KC_QUES, KC_SCLN, KC_LBRC, KC_RBRC, KC_BSLS,
+            KC_MINUS, KC_UNDERSCORE, KC_LPRN, KC_RPRN, KC_NO,
+            KC_QUES, KC_EXCLAIM, KC_LBRC, KC_RBRC, KC_BSLS,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS,
 
-            KC_SCLN, LSFT(KC_7), LSFT(KC_8), LSFT(KC_EQL), KC_TILDE,
+            LSFT(KC_EQL), LSFT(KC_7), LSFT(KC_8), KC_NO, KC_TILDE,
             KC_GRV, LSFT(KC_4), LSFT(KC_5), LSFT(KC_6), KC_SLSH,
-            KC_COLON, LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), KC_EQL,
+            KC_EQL, LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), KC_COLON,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS
 
