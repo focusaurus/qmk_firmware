@@ -21,10 +21,10 @@
 
 enum {
 
-  TD_COMMA,
-  TD_DOT,
-  TD_LBRC,
-  TD_RBRC,
+  /* TD_COMMA, */
+  /* TD_DOT, */
+  /* TD_LBRC, */
+  /* TD_RBRC, */
   TD_SEMI
 
 };
@@ -35,7 +35,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   /* [TD_DOT] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_QUES), */
   /* [TD_LBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, LSFT(KC_COMMA)), */
   /* [TD_RBRC] = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, LSFT(KC_DOT)), */
-  /* [TD_SEMI] = ACTION_TAP_DANCE_DOUBLE(KC_COLON, KC_SCLN) */
+  [TD_SEMI] = ACTION_TAP_DANCE_DOUBLE(KC_COLON, KC_SCLN)
 
 };
 
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         KC_QUOTE, KC_COMMA, LALT_T(KC_DOT), LCTL_T(KC_P), KC_Y,
         MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
-        LT(KBFN, KC_SCLN), KC_Q, KC_J, KC_K, KC_X,
+        TD(TD_SEMI), KC_Q, KC_J, KC_K, KC_X,
         OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LALT),
         LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), MT(MOD_LGUI, FUZZBALL),
 
@@ -180,7 +180,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [KBFN] = LAYOUT(
 
             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-            KC_NO, KC_NO, KC_NO, TG(MACOS), RESET,
+            KC_CAPSLOCK, KC_NO, KC_NO, TG(MACOS), RESET,
             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS,
