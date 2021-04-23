@@ -36,8 +36,8 @@ enum combos {
   COMBO_PIPE
 };
 
-const uint16_t PROGMEM combo_esc[] = {KC_E, KC_U, COMBO_END};
-const uint16_t PROGMEM combo_pipe[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM combo_esc[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM combo_pipe[] = {KC_DOT, KC_P, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [COMBO_ESC] = COMBO(combo_esc, KC_ESC),
@@ -62,17 +62,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // row A right (7 keys)
     KC_MUTE, KC_F6, KC_F7, KC_F8, KC_F9, KC_EQL, KC_BSLS,
     // row B left (has inner column) (7 keys)
-    KC_TAB, KC_QUOT, TD(TD_COMMA), KC_DOT, KC_P, KC_Y, KC_PGUP,
+    KC_TAB, KC_QUOT, TD(TD_COMMA), LALT_T(KC_DOT), LCTL_T(KC_P), KC_Y, KC_PGUP,
     // row B right (has inner column) (7 keys)
-    KC_VOLU, KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLSH,
+    KC_VOLU, KC_F, RCTL_T(KC_G), LALT_T(KC_C), KC_R, KC_L, KC_SLSH,
     // row C left (no inner column) (6 keys)
     LCTL_T(KC_ESC), MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
     // row C right (no inner column) (6 keys)
     KC_D, KC_H, KC_T, KC_N, KC_S, KC_MINS,
     // row D left (has inner column) (7 keys)
-    KC_NO, TD(TD_SEMI), KC_Q, LALT_T(KC_J), LCTL_T(KC_K), KC_X, KC_PGDN,
+    KC_NO, TD(TD_SEMI), KC_Q, KC_J, KC_K, KC_X, KC_PGDN,
     // row D right (has inner column) (7 keys)
-    KC_VOLD, KC_B, RCTL_T(KC_M), KC_W, KC_V, LT(BANG, KC_Z), SNIP_SFT,
+    KC_VOLD, KC_B, KC_M, KC_W, KC_V, LT(BANG, KC_Z), SNIP_SFT,
     // row E left (5 keys)
     KC_F1, KC_F2, KC_F3, KC_F4, OSM(MOD_LCTL),
     // row E right (5 keys)

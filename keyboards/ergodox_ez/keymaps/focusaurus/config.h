@@ -20,6 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_FORCE_HOLD
 #define PERMISSIVE_HOLD
-// #define TAPPING_TERM 300
+#define TAPPING_TERM 300
 #define COMBO_COUNT 2
 #define NO_AUTO_SHIFT_ALPHA

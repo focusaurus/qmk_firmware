@@ -206,9 +206,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             ),
     [KBFN] = LAYOUT(
 
-            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-            KC_CAPSLOCK, KC_NO, KC_NO, TG(MACOS), RESET,
-            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+            KC_NO, KC_NO, KC_NO, KC_VOLU, KC_NO,
+            KC_CAPSLOCK, KC_NO, KC_NO, KC_MUTE, RESET,
+            TG(MACOS), KC_NO, KC_NO, KC_VOLD, KC_NO,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_NO, KC_F7, KC_F8, KC_F9, KC_F12,
