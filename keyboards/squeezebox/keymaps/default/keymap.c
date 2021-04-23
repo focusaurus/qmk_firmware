@@ -48,13 +48,15 @@ enum combos {
   /* COMBO_TAB, */
   /* COMBO_TILDE, */
   /* COMBO_SEMI, */
-  COMBO_COLON,
+  /* COMBO_COLON, */
   COMBO_BACKSPACE,
+  COMBO_BRACKETS,
+  COMBO_PARENS,
   COMBO_ESCAPE,
-  COMBO_EXCLAMATION,
-  COMBO_MINUS,
-  COMBO_PIPE,
-  COMBO_QUESTION,
+  /* COMBO_EXCLAMATION, */
+  /* COMBO_MINUS, */
+  /* COMBO_PIPE, */
+  /* COMBO_QUESTION, */
 
 };
 
@@ -65,13 +67,15 @@ enum combos {
 /* const uint16_t PROGMEM combo_tab[] = {KC_O, KC_Q, COMBO_END}; */
 /* const uint16_t PROGMEM combo_tilde[] = {KC_H, KC_M, COMBO_END}; */
 const uint16_t PROGMEM combo_backspace[] = {KC_O, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_colon[] = {KC_U, KC_K, COMBO_END};
+const uint16_t PROGMEM combo_brackets[] = {KC_J, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_parens[] = {KC_U, KC_K, COMBO_END};
+/* const uint16_t PROGMEM combo_colon[] = {KC_U, KC_K, COMBO_END}; */
 const uint16_t PROGMEM combo_escape[] = {KC_E, KC_U, COMBO_END};
-const uint16_t PROGMEM combo_exclamation[] = {KC_Z, KC_DOT, COMBO_END};
-const uint16_t PROGMEM combo_minus[] = {KC_N, KC_S, COMBO_END};
-const uint16_t PROGMEM combo_pipe[] = {KC_Z, KC_P, COMBO_END};
-const uint16_t PROGMEM combo_question[] = {KC_Z, KC_COMMA, COMBO_END};
-const uint16_t PROGMEM combo_reset[] = {KC_F, KC_L, COMBO_END};
+/* const uint16_t PROGMEM combo_exclamation[] = {KC_Z, KC_DOT, COMBO_END}; */
+/* const uint16_t PROGMEM combo_minus[] = {KC_N, KC_S, COMBO_END}; */
+/* const uint16_t PROGMEM combo_pipe[] = {KC_Z, KC_P, COMBO_END}; */
+/* const uint16_t PROGMEM combo_question[] = {KC_Z, KC_COMMA, COMBO_END}; */
+/* const uint16_t PROGMEM combo_reset[] = {KC_F, KC_L, COMBO_END}; */
 
 combo_t key_combos[COMBO_COUNT] = {
 
@@ -81,15 +85,36 @@ combo_t key_combos[COMBO_COUNT] = {
   /* [COMBO_SPACE] = COMBO(combo_space, KC_SPC), */
   /* [COMBO_TAB] = COMBO(combo_tab, KC_TAB), */
   /* [COMBO_TILDE] = COMBO(combo_tilde, KC_TILDE), */
-  [COMBO_COLON] = COMBO(combo_colon, KC_COLON),
+  /* [COMBO_COLON] = COMBO(combo_colon, KC_COLON), */
   [COMBO_BACKSPACE] = COMBO(combo_backspace, KC_BSPC),
+  [COMBO_BRACKETS] = COMBO_ACTION(combo_brackets),
+  [COMBO_PARENS] = COMBO_ACTION(combo_parens),
   [COMBO_ESCAPE] = COMBO(combo_escape, KC_ESC),
-  [COMBO_EXCLAMATION] = COMBO(combo_exclamation, KC_EXCLAIM),
-  [COMBO_MINUS] = COMBO(combo_minus, KC_MINUS),
-  [COMBO_PIPE] = COMBO(combo_pipe, KC_PIPE),
-  [COMBO_QUESTION] = COMBO(combo_question, KC_QUES),
+  /* [COMBO_EXCLAMATION] = COMBO(combo_exclamation, KC_EXCLAIM), */
+  /* [COMBO_MINUS] = COMBO(combo_minus, KC_MINUS), */
+  /* [COMBO_PIPE] = COMBO(combo_pipe, KC_PIPE), */
+  /* [COMBO_QUESTION] = COMBO(combo_question, KC_QUES), */
 
 };
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+  switch(combo_index) {
+    case COMBO_BRACKETS:
+      if (pressed) {
+        tap_code16(KC_LBRC);
+        tap_code16(KC_RBRC);
+        tap_code16(KC_LEFT);
+      }
+      break;
+    case COMBO_PARENS:
+      if (pressed) {
+        tap_code16(KC_LPRN);
+        tap_code16(KC_RPRN);
+        tap_code16(KC_LEFT);
+      }
+      break;
+  }
+}
 
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
@@ -106,12 +131,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [DVORAK] = LAYOUT(
 
+        // TODO 1-finger combos for uk, ej, oq
         KC_QUOTE, KC_COMMA, LALT_T(KC_DOT), LCTL_T(KC_P), KC_Y,
         MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
         TD(TD_SEMI), KC_Q, KC_J, KC_K, KC_X,
         OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LALT),
         LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), MT(MOD_LGUI, FUZZBALL),
 
+        // TODO 1-finger combos for hm, tw, nv, sz
         KC_F, RCTL_T(KC_G), LALT_T(KC_C), KC_R, KC_L,
         KC_D, KC_H, KC_T, KC_N, KC_S,
         KC_B, KC_M, KC_W, KC_V, KC_Z,
@@ -165,14 +192,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BANG] = LAYOUT(
 
             KC_LT, KC_GT, KC_LCBR, KC_RCBR, KC_PIPE,
-            KC_MINUS, KC_UNDERSCORE, KC_LPRN, KC_RPRN, KC_NO,
+            KC_MINUS, KC_UNDERSCORE, KC_LPRN, KC_RPRN, KC_SCLN,
             KC_QUES, KC_EXCLAIM, KC_LBRC, KC_RBRC, KC_BSLS,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS,
 
             LSFT(KC_EQL), LSFT(KC_7), LSFT(KC_8), KC_NO, KC_TILDE,
-            KC_GRV, LSFT(KC_4), LSFT(KC_5), LSFT(KC_6), KC_SLSH,
-            KC_EQL, LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), KC_COLON,
+            KC_EQL, LSFT(KC_4), LSFT(KC_5), LSFT(KC_6), KC_SLSH,
+            KC_GRV, LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), KC_COLON,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS
 
