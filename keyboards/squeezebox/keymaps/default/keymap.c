@@ -21,7 +21,7 @@
 
 enum {
 
-  /* TD_COMMA, */
+  TD_COMMA,
   /* TD_DOT, */
   /* TD_LBRC, */
   /* TD_RBRC, */
@@ -31,7 +31,7 @@ enum {
 
 qk_tap_dance_action_t tap_dance_actions[] = {
 
-  /* [TD_COMMA] = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_F12), */
+  [TD_COMMA] = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_F12),
   /* [TD_DOT] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_QUES), */
   /* [TD_LBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, LSFT(KC_COMMA)), */
   /* [TD_RBRC] = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, LSFT(KC_DOT)), */
@@ -41,59 +41,60 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 enum combos {
 
+  /* COMBO_COLON, */
   /* COMBO_ENTER, */
+  /* COMBO_EXCLAMATION, */
+  /* COMBO_MINUS, */
   /* COMBO_MINUS2, */
+  /* COMBO_PIPE, */
+  /* COMBO_QUESTION, */
+  /* COMBO_SEMI, */
   /* COMBO_SLASH, */
   /* COMBO_SPACE, */
   /* COMBO_TAB, */
   /* COMBO_TILDE, */
-  /* COMBO_SEMI, */
-  /* COMBO_COLON, */
   COMBO_BACKSPACE,
   COMBO_BRACKETS,
-  COMBO_PARENS,
   COMBO_ESCAPE,
-  /* COMBO_EXCLAMATION, */
-  /* COMBO_MINUS, */
-  /* COMBO_PIPE, */
-  /* COMBO_QUESTION, */
+  COMBO_PARENS,
 
 };
 
+
+/* const uint16_t PROGMEM combo_colon[] = {KC_U, KC_K, COMBO_END}; */
 /* const uint16_t PROGMEM combo_enter[] = {KC_E, KC_J, COMBO_END}; */
+/* const uint16_t PROGMEM combo_exclamation[] = {KC_Z, KC_DOT, COMBO_END}; */
 /* const uint16_t PROGMEM combo_minus2[] = {KC_S, KC_Z, COMBO_END}; */
+/* const uint16_t PROGMEM combo_minus[] = {KC_N, KC_S, COMBO_END}; */
+/* const uint16_t PROGMEM combo_pipe[] = {KC_Z, KC_P, COMBO_END}; */
+/* const uint16_t PROGMEM combo_question[] = {KC_Z, KC_COMMA, COMBO_END}; */
+/* const uint16_t PROGMEM combo_reset[] = {KC_F, KC_L, COMBO_END}; */
 /* const uint16_t PROGMEM combo_slash[] = {KC_T, KC_W, COMBO_END}; */
 /* const uint16_t PROGMEM combo_space[] = {KC_U, KC_K, COMBO_END}; */
 /* const uint16_t PROGMEM combo_tab[] = {KC_O, KC_Q, COMBO_END}; */
 /* const uint16_t PROGMEM combo_tilde[] = {KC_H, KC_M, COMBO_END}; */
 const uint16_t PROGMEM combo_backspace[] = {KC_O, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_brackets[] = {KC_J, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_parens[] = {KC_U, KC_K, COMBO_END};
-/* const uint16_t PROGMEM combo_colon[] = {KC_U, KC_K, COMBO_END}; */
 const uint16_t PROGMEM combo_escape[] = {KC_E, KC_U, COMBO_END};
-/* const uint16_t PROGMEM combo_exclamation[] = {KC_Z, KC_DOT, COMBO_END}; */
-/* const uint16_t PROGMEM combo_minus[] = {KC_N, KC_S, COMBO_END}; */
-/* const uint16_t PROGMEM combo_pipe[] = {KC_Z, KC_P, COMBO_END}; */
-/* const uint16_t PROGMEM combo_question[] = {KC_Z, KC_COMMA, COMBO_END}; */
-/* const uint16_t PROGMEM combo_reset[] = {KC_F, KC_L, COMBO_END}; */
+const uint16_t PROGMEM combo_parens[] = {KC_U, KC_K, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
 
+  /* [COMBO_COLON] = COMBO(combo_colon, KC_COLON), */
   /* [COMBO_ENTER] = COMBO(combo_enter, KC_ENT), */
+  /* [COMBO_EXCLAMATION] = COMBO(combo_exclamation, KC_EXCLAIM), */
   /* [COMBO_MINUS2] = COMBO(combo_minus2, KC_MINUS), */
+  /* [COMBO_MINUS] = COMBO(combo_minus, KC_MINUS), */
+  /* [COMBO_PIPE] = COMBO(combo_pipe, KC_PIPE), */
+  /* [COMBO_QUESTION] = COMBO(combo_question, KC_QUES), */
   /* [COMBO_SLASH] = COMBO(combo_slash, KC_SLSH), */
   /* [COMBO_SPACE] = COMBO(combo_space, KC_SPC), */
   /* [COMBO_TAB] = COMBO(combo_tab, KC_TAB), */
   /* [COMBO_TILDE] = COMBO(combo_tilde, KC_TILDE), */
-  /* [COMBO_COLON] = COMBO(combo_colon, KC_COLON), */
   [COMBO_BACKSPACE] = COMBO(combo_backspace, KC_BSPC),
   [COMBO_BRACKETS] = COMBO_ACTION(combo_brackets),
-  [COMBO_PARENS] = COMBO_ACTION(combo_parens),
   [COMBO_ESCAPE] = COMBO(combo_escape, KC_ESC),
-  /* [COMBO_EXCLAMATION] = COMBO(combo_exclamation, KC_EXCLAIM), */
-  /* [COMBO_MINUS] = COMBO(combo_minus, KC_MINUS), */
-  /* [COMBO_PIPE] = COMBO(combo_pipe, KC_PIPE), */
-  /* [COMBO_QUESTION] = COMBO(combo_question, KC_QUES), */
+  [COMBO_PARENS] = COMBO_ACTION(combo_parens),
 
 };
 
@@ -132,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [DVORAK] = LAYOUT(
 
         // TODO 1-finger combos for uk, ej, oq
-        KC_QUOTE, KC_COMMA, LALT_T(KC_DOT), LCTL_T(KC_P), KC_Y,
+        KC_QUOTE, TD(TD_COMMA), LALT_T(KC_DOT), LCTL_T(KC_P), KC_Y,
         MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
         TD(TD_SEMI), KC_Q, KC_J, KC_K, KC_X,
         OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LALT),
