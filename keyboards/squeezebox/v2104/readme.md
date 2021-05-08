@@ -1,11 +1,13 @@
-# squeezebox
+# squeezebox keyboard
 
-![squeezebox](imgur.com image replace me!)
+## v2104
+
+![squeezebox](https://live.staticflickr.com/65535/51122426945_962f7dd28b_c.jpg)
 
 *A short description of the keyboard/project*
 
-* Keyboard Maintainer: [Peter Lyons](https://github.com/yourusername)
-* Hardware Supported: *The PCBs, controllers supported*
+* Keyboard Maintainer: [Peter Lyons](https://peterlyons.com)
+* Hardware Supported: Elite-C
 * Hardware Availability: *Links to where you can find this hardware*
 
 Make example for this keyboard (after setting up your build environment):

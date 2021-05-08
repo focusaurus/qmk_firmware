@@ -3,11 +3,13 @@
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID    0xEE01
+// P"e"t"e" 16 Wheeler
+#define VENDOR_ID    0xEE16
 #define PRODUCT_ID   0x0001
-#define DEVICE_VER   0x0002
+// v2104 decimal in hex
+#define DEVICE_VER   0x0838
 #define MANUFACTURER Peter Lyons
-#define PRODUCT      squeezebox
+#define PRODUCT      squeezebox-v2104
 
 /* key matrix size */
 #define MATRIX_ROWS 10
