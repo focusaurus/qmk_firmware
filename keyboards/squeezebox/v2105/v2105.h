@@ -39,20 +39,9 @@
   RC7, \
   RB7, RA7, RC6, RB6, RA6 \
 ) { \
-  { RA1, RA2, RA3 }, \
-  { RA4, RA5, RA6 }, \
-  { RA7, RB1, RB2 }, \
-  { RB3, RB4, RB5 }, \
-  { RB6, RB7, RC1 }, \
-  { RC2, RC3, RC4 }, \
-  { RC5, RC6, RC7 }, \
-  { LA1, LA2, LA3 }, \
-  { LA4, LA5, LA6 }, \
-  { LA7, LB1, LB2 }, \
-  { LB3, LB4, LB5 }, \
-  { LB6, LB7, LC1, }, \
-  { LC2, LC3, LC4 }, \
-  { LC5, LC6, LC7 } \
+  { RA1, RA2, RA3, RA4, RA5, RA6, RA7, RB1, RB2, RB3, RB4, RB5, RB6, RB7 }, \
+  { RC1, RC2, RC3, RC4, RC5, RC6, RC7, LA1, LA2, LA3, LA4, LA5, LA6, LA7 }, \
+  { LB1, LB2, LB3, LB4, LB5, LB6, LB7, LC1, LC2, LC3, LC4, LC5, LC6, LC7 } \
 }
 
 /*

@@ -28,11 +28,11 @@
 */
 
 #define LAYOUT( \
-  LA1, \
-  LB1, \
-  LC1 \
+  LA1, LA2, \
+  LB1, LB2,  \
+  LC1, LC2 \
 ) { \
-  { LA1 }, \
-  { LB1 }, \
-  { LC1 } \
+  { LA1, LA2 }, \
+  { LB1, LB2 }, \
+  { LC1, LC2 } \
 }

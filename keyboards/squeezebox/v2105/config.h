@@ -12,8 +12,8 @@
 #define PRODUCT      squeezebox-v2105
 
 /* key matrix size */
-#define MATRIX_ROWS 14
-#define MATRIX_COLS 3
+#define MATRIX_ROWS 3
+#define MATRIX_COLS 14
 #define COMBO_COUNT 7
 #define COMBO_TERM 400
 #define TAPPING_TERM 300
@@ -33,8 +33,10 @@
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_COL_PINS { F7, B1, B3 }
-#define MATRIX_ROW_PINS { C6, D7, E6, B4, B5, B6, B2 }
+#define MATRIX_ROW_PINS { F7, B1, B3 }
+#define MATRIX_COL_PINS { C6, D7, E6, B4, B5, B6, B2 }
+/* COL2ROW, ROW2COL */
+#define DIODE_DIRECTION ROW2COL
 /*
  * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
  */
@@ -47,8 +49,6 @@
 
 #define UNUSED_PINS
 
-/* COL2ROW, ROW2COL */
-#define DIODE_DIRECTION ROW2COL
 
 
 //#define LED_NUM_LOCK_PIN B0
