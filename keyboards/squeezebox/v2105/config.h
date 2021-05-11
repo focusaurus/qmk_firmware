@@ -33,10 +33,10 @@
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_ROW_PINS { F7, B1, B3 }
-#define MATRIX_COL_PINS { C6, D7, E6, B4, B5, B6, B2 }
+#define MATRIX_ROW_PINS { B5, B4, E6 }
+#define MATRIX_COL_PINS { B6, B2, B3, B1, F7, F6, F5, F4 }
 /* COL2ROW, ROW2COL */
-#define DIODE_DIRECTION ROW2COL
+#define DIODE_DIRECTION COL2ROW
 /*
  * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
  */
@@ -45,11 +45,7 @@
 // #define MASTER_RIGHT
 #define SPLIT_USB_DETECT
 
-
-
 #define UNUSED_PINS
-
-
 
 //#define LED_NUM_LOCK_PIN B0
 //#define LED_CAPS_LOCK_PIN B1

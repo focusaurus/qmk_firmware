@@ -13,7 +13,7 @@
 
 /* key matrix size */
 #define MATRIX_ROWS 3
-#define MATRIX_COLS 2
+#define MATRIX_COLS 7
 #define COMBO_COUNT 7
 #define COMBO_TERM 400
 #define TAPPING_TERM 300
@@ -33,8 +33,8 @@
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_COL_PINS { B5 }
-#define MATRIX_ROW_PINS { B6, B2, B3 }
+#define MATRIX_COL_PINS { B6, B2, B3, B1, F7, F6, F5 }
+#define MATRIX_ROW_PINS { B5, B4, E6 }
 /* COL2ROW, ROW2COL */
 #define DIODE_DIRECTION COL2ROW
 /*
