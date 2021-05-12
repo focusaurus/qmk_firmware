@@ -30,7 +30,7 @@
 #define LAYOUT( \
   LA1, \
   LB1, \
-  LC1, \
+  LC1 \
 ) { \
   { LA1 }, \
   { LB1 }, \
