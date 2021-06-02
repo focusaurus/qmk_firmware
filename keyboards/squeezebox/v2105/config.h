@@ -4,12 +4,12 @@
 
 /* USB Device descriptor parameter */
 // P"e"t"e" 16 Wheeler
-#define VENDOR_ID    0xEE16
-#define PRODUCT_ID   0x0001
+#define VENDOR_ID 0xEE16
+#define PRODUCT_ID 0x0001
 // v2105 decimal in hex
-#define DEVICE_VER   0x0839
+#define DEVICE_VER 0x0839
 #define MANUFACTURER Peter Lyons
-#define PRODUCT      squeezebox-v2105
+#define PRODUCT squeezebox-v2105
 
 /* key matrix size */
 #define MATRIX_ROWS 6
@@ -33,8 +33,6 @@
  * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
  */
 #define SOFT_SERIAL_PIN D0  // or D1, D2, D3, E6
-// #define SPLIT_HAND_MATRIX_GRID F5, D7
-// #define MASTER_RIGHT
 #define SPLIT_USB_DETECT
 
 #define UNUSED_PINS
