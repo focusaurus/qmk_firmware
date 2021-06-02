@@ -36,16 +36,15 @@ enum combos {
   /* COMBO_SEMI, */
   /* COMBO_SLASH, */
   /* COMBO_SPACE, */
-  /* COMBO_TAB, */
+  COMBO_TAB,
   /* COMBO_TILDE, */
-  COMBO_BACKSPACE,
-  COMBO_BRACKETS,
+  /* COMBO_BACKSPACE, */
+  /* COMBO_BRACKETS, */
   COMBO_ESCAPE,
-  COMBO_PARENS,
+  /* COMBO_PARENS, */
 
 };
 
-/*
 // const uint16_t PROGMEM combo_colon[] = {KC_U, KC_K, COMBO_END};
 // const uint16_t PROGMEM combo_enter[] = {KC_E, KC_J, COMBO_END};
 // const uint16_t PROGMEM combo_exclamation[] = {KC_Z, KC_DOT, COMBO_END};
@@ -56,12 +55,12 @@ enum combos {
 // const uint16_t PROGMEM combo_reset[] = {KC_F, KC_L, COMBO_END};
 // const uint16_t PROGMEM combo_slash[] = {KC_T, KC_W, COMBO_END};
 // const uint16_t PROGMEM combo_space[] = {KC_U, KC_K, COMBO_END};
-// const uint16_t PROGMEM combo_tab[] = {KC_O, KC_Q, COMBO_END};
+const uint16_t PROGMEM combo_tab[] = {KC_O, KC_Q, COMBO_END};
 // const uint16_t PROGMEM combo_tilde[] = {KC_H, KC_M, COMBO_END};
-const uint16_t PROGMEM combo_backspace[] = {KC_O, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_brackets[] = {KC_J, KC_E, COMBO_END};
+// const uint16_t PROGMEM combo_backspace[] = {KC_O, KC_E, COMBO_END};
+// const uint16_t PROGMEM combo_brackets[] = {KC_J, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_escape[] = {KC_E, KC_U, COMBO_END};
-const uint16_t PROGMEM combo_parens[] = {KC_U, KC_K, COMBO_END};
+// const uint16_t PROGMEM combo_parens[] = {KC_U, KC_K, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
 
@@ -76,13 +75,13 @@ combo_t key_combos[COMBO_COUNT] = {
   // [COMBO_SPACE] = COMBO(combo_space, KC_SPC),
   // [COMBO_TAB] = COMBO(combo_tab, KC_TAB),
   // [COMBO_TILDE] = COMBO(combo_tilde, KC_TILDE),
-  [COMBO_BACKSPACE] = COMBO(combo_backspace, KC_BSPC),
-  [COMBO_BRACKETS] = COMBO_ACTION(combo_brackets),
+  // [COMBO_BACKSPACE] = COMBO(combo_backspace, KC_BSPC),
+  // [COMBO_BRACKETS] = COMBO_ACTION(combo_brackets),
   [COMBO_ESCAPE] = COMBO(combo_escape, KC_ESC),
-  [COMBO_PARENS] = COMBO_ACTION(combo_parens),
+  // [COMBO_PARENS] = COMBO_ACTION(combo_parens),
 
 };
-
+/*
 void process_combo_event(uint16_t combo_index, bool pressed) {
   switch(combo_index) {
     case COMBO_BRACKETS:
