@@ -121,30 +121,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_QUOTE, KC_COMMA /*TD(TD_COMMA)*/, LALT_T(KC_DOT), LCTL_T(KC_P), KC_Y,
         MT(MOD_LGUI | MOD_LALT, KC_A), KC_O, KC_E, KC_U, KC_I,
         KC_SCLN /*TD(TD_SEMI)*/, KC_Q, KC_J, KC_K, KC_X,
-        OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LALT),
-        LT(KBFN, KC_BSPC), LT(NAVNUM, LEADER), MT(MOD_LGUI, FUZZBALL),
+        KC_ESC, KC_BSPC, OSM(MOD_LSFT),
+        // OSM(MOD_LALT), OSM(MOD_LCTL), OSM(MOD_LSFT),
+        LT(NAVNUM, LEADER), LT(KBFN, FUZZBALL), MT(MOD_LGUI, KC_DEL),
 
         // TODO 1-finger combos for hm, tw, nv, sz
         KC_F, RCTL_T(KC_G), LALT_T(KC_C), KC_R, KC_L,
         KC_D, KC_H, KC_T, KC_N, KC_S,
         KC_B, KC_M, KC_W, KC_V, KC_Z,
         // TODO if top row mods work out can use these for something else
-        OSM(MOD_LALT), OSM(MOD_RSFT), OSM(MOD_RCTL),
-        // TODO LE3 available for a better layer
-        KC_ENT, LT(BANG, KC_SPC), KC_ESC
-
-        /*
-            LSFT(KC_A), LSFT(KC_B), LSFT(KC_C), LSFT(KC_D), LSFT(KC_E),
-            LSFT(KC_F), LSFT(KC_G), LSFT(KC_H), LSFT(KC_I), LSFT(KC_J),
-            LSFT(KC_K), LSFT(KC_L), LSFT(KC_M), LSFT(KC_N), LSFT(KC_O),
-            LSFT(KC_1), LSFT(KC_2), LSFT(KC_3),
-            LSFT(KC_4), LSFT(KC_5), LSFT(KC_6),
-            KC_A, KC_B, KC_C, KC_D, KC_E,
-            KC_F, KC_G, KC_H, KC_I, KC_J,
-            KC_K, KC_L, KC_M, KC_N, KC_O,
-            KC_1, KC_2, KC_3,
-            KC_4, KC_5, KC_6
-        */
+        // KC_3, KC_2, KC_1,
+        // KC_6, KC_5, KC_4
+        OSM(MOD_RSFT), LT(KBFN, KC_BSPC), KC_DEL,
+        OSM(MOD_RGUI), KC_ENT, LT(BANG, KC_SPC)
 
             ),
     [MACOS] = LAYOUT(
@@ -152,8 +141,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            OSM(MOD_LGUI), KC_TRNS, KC_TRNS,
+            KC_TRNS, OSM(MOD_LGUI), KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS,
+
             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -168,6 +158,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             LCTL(KC_A), KC_HOME, KC_DOWN, KC_END, KC_PGDN,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS,
+
             KC_COMM, KC_7, KC_8, KC_9, KC_NO,
             KC_DOT, KC_4, KC_5, KC_6, KC_0,
             KC_COLON, KC_1, KC_2, KC_3, KC_NO,
@@ -197,6 +188,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             TG(MACOS), KC_NO, KC_NO, KC_VOLD, KC_NO,
             KC_TRNS, KC_TRNS, KC_TRNS,
             KC_TRNS, KC_TRNS, KC_TRNS,
+
             KC_NO, KC_F7, KC_F8, KC_F9, KC_F12,
             KC_NO, KC_F4, KC_F5, KC_F6, KC_F11,
             KC_NO, KC_F1, KC_F2, KC_F3, KC_F10,
