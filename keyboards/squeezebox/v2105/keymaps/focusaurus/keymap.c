@@ -36,7 +36,7 @@ enum combos {
   /* COMBO_SEMI, */
   /* COMBO_SLASH, */
   /* COMBO_SPACE, */
-  COMBO_TAB,
+  /* COMBO_TAB, */
   /* COMBO_TILDE, */
   /* COMBO_BACKSPACE, */
   /* COMBO_BRACKETS, */
@@ -55,7 +55,7 @@ enum combos {
 // const uint16_t PROGMEM combo_reset[] = {KC_F, KC_L, COMBO_END};
 // const uint16_t PROGMEM combo_slash[] = {KC_T, KC_W, COMBO_END};
 // const uint16_t PROGMEM combo_space[] = {KC_U, KC_K, COMBO_END};
-const uint16_t PROGMEM combo_tab[] = {KC_O, KC_Q, COMBO_END};
+/* const uint16_t PROGMEM combo_tab[] = {KC_O, KC_Q, COMBO_END}; */
 // const uint16_t PROGMEM combo_tilde[] = {KC_H, KC_M, COMBO_END};
 // const uint16_t PROGMEM combo_backspace[] = {KC_O, KC_E, COMBO_END};
 // const uint16_t PROGMEM combo_brackets[] = {KC_J, KC_E, COMBO_END};
