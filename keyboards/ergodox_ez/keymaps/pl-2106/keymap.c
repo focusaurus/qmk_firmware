@@ -95,7 +95,7 @@ KC_F1, KC_F2, KC_F3, KC_F4, MT(MOD_LALT, KC_BSPC),
 // Left thumb cluster (5 keys)
 KC_LEFT, KC_RIGHT,
 TG(MACOS),
-OSM(MOD_LSFT), LT(EDIT, LEADER), LT(BANG, FUZZBALL),
+LT(EDIT, LEADER), OSM(MOD_LSFT), LT(BANG, FUZZBALL),
 
 // right hand
 // row A right (7 keys)
@@ -107,12 +107,11 @@ KC_D, KC_H, KC_T, KC_N, KC_S, KC_MINS,
 // row D right (has inner column) (7 keys)
 KC_VOLD, KC_B, KC_M, KC_W, KC_V, LT(BANG, KC_Z), KC_NO,
 // row E right (5 keys)
-OSM(MOD_RCTL), OSM(MOD_RSFT), OSM(MOD_LALT), OSM(MOD_RGUI), LGUI(LALT(KC_X)),
+KC_DEL, OSM(MOD_RSFT), OSM(MOD_LALT), OSM(MOD_RGUI), LGUI(LALT(KC_X)),
 // right thumb cluster (5 keys)
 KC_LEFT, KC_RIGHT,
 TG(EDIT),
-FUZZBALL, LT(BANG, KC_ENT), LT(NUMBERS, KC_SPC)
-/* TODO LT(KBFN, FUZZBALL),*/
+OSM(MOD_RCTL), LT(BANG, KC_ENT), LT(NUMBERS, KC_SPC)
 
 ),
 
@@ -151,7 +150,7 @@ OSM(MOD_RGUI), KC_TRNS, KC_TRNS, OSM(MOD_RCTL), KC_TRNS,
 // thumb cluster right
 KC_TRNS, KC_TRNS,
 KC_TRNS,
-KC_TRNS, KC_TRNS, KC_TRNS
+OSM(MOD_RGUI), KC_TRNS, KC_TRNS
 
 ),
 [EDIT] = LAYOUT_ergodox(
@@ -332,3 +331,6 @@ KC_TRNS, KC_TRNS, KC_TRNS
     */
 };
 
+/* void keyboard_post_init_user(void) { */
+/*   layer_on(EDIT); */
+/* } */
