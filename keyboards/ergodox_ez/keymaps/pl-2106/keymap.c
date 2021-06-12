@@ -33,7 +33,7 @@ enum combos {
 };
 
 
-const uint16_t PROGMEM combo_backspace[] = {KC_O, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_backspace[] = {KC_NO, KC_NO, COMBO_END};
 const uint16_t PROGMEM combo_brackets[] = {KC_J, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_escape[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM combo_parens[] = {KC_U, KC_K, COMBO_END};
@@ -75,7 +75,7 @@ enum {
   EDIT,
   NUMBERS,
   BANG,
-  /* KBFN, */
+  KBFN,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -95,7 +95,7 @@ KC_F1, KC_F2, KC_F3, KC_F4, MT(MOD_LALT, KC_BSPC),
 // Left thumb cluster (5 keys)
 KC_LEFT, KC_RIGHT,
 TG(MACOS),
-LT(EDIT, LEADER), OSM(MOD_LSFT), LT(BANG, FUZZBALL),
+LT(EDIT, LEADER), OSM(MOD_LSFT), LT(KBFN, FUZZBALL),
 
 // right hand
 // row A right (7 keys)
@@ -230,15 +230,20 @@ KC_TRNS, KC_TRNS, KC_TRNS
 ),
 [BANG] = LAYOUT_ergodox(
 
+// HEADS UP: This is a copy of the left hand from the EDIT
+// layer because QMK layers are dumb and don't really
+// work in any kind of reasonable way.
+// Without this copying, the default layer of DVORAK would fire
+// which is not what I want
 // left hand
 // row A left (7 keys)
 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 // row B left (has inner column) (7 keys)
-KC_TRNS, KC_LT, KC_GT, KC_NO, KC_NO, KC_PIPE, KC_TRNS,
+KC_TRNS, LGUI(KC_TAB), KC_BSPC, KC_SPC, KC_DEL, KC_PGUP, KC_TRNS,
 // row C left (no inner column) (6 keys)
-KC_TRNS, KC_MINUS, KC_UNDERSCORE, KC_NO, KC_NO, KC_SCLN,
+KC_TRNS, KC_TAB, KC_LEFT, KC_UP, KC_RIGHT, KC_ENT,
 // row D left (has inner column) (7 keys)
-KC_TRNS, KC_QUES, KC_EXCLAIM, KC_NO, KC_NO, KC_BSLS, KC_TRNS,
+LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), KC_HOME, KC_DOWN, KC_END, KC_PGDN, KC_TRNS,
 // row E left (5 keys)
 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 // thumb cluster left
@@ -250,11 +255,46 @@ KC_TRNS, KC_TRNS, KC_TRNS,
 // row A right (7 keys)
 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 // row B right (has inner column) (7 keys)
-KC_TRNS, LSFT(KC_EQL), LSFT(KC_7), LSFT(KC_8), KC_SLSH, KC_RCBR, KC_TRNS,
+KC_TRNS, LSFT(KC_EQL), LSFT(KC_7), LSFT(KC_8), KC_SLSH, KC_NO, KC_NO,
 // row C right (no inner column) (6 keys)
-KC_EQL, LSFT(KC_4), LSFT(KC_5), LSFT(KC_6), KC_TRNS, KC_NO,
+KC_EQL, LSFT(KC_4), LSFT(KC_5), LSFT(KC_6), KC_MINUS, KC_PIPE,
 // row D right (has inner column) (7 keys)
-KC_TRNS, KC_LCBR, LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), KC_RCBR, KC_TRNS,
+// TODO maybe combo for a pair of curly braces for bash vars?
+KC_TRNS, KC_NO, LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), KC_QUES, KC_NO,
+// row E right (5 keys)
+KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+// thumb cluster right
+KC_TRNS, KC_TRNS,
+KC_TRNS,
+KC_TRNS, KC_TRNS, KC_TRNS
+),
+
+[KBFN] = LAYOUT_ergodox(
+// left hand
+// row A left (7 keys)
+RESET, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+// row B left (has inner column) (7 keys)
+KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+// row C left (no inner column) (6 keys)
+KC_CAPSLOCK, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+// row D left (has inner column) (7 keys)
+KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+// row E left (5 keys)
+KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+// thumb cluster left
+KC_TRNS, KC_TRNS,
+KC_TRNS,
+KC_TRNS, KC_TRNS, KC_TRNS,
+
+// right hand
+// row A right (7 keys)
+KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+// row B right (has inner column) (7 keys)
+KC_TRNS, KC_TRNS, KC_F7, KC_F9, KC_F9, KC_F12, KC_TRNS,
+// row C right (no inner column) (6 keys)
+KC_TRNS, KC_F4, KC_F6, KC_F6, KC_F11, KC_TRNS,
+// row D right (has inner column) (7 keys)
+KC_TRNS, KC_TRNS, KC_F1, KC_F2, KC_F3, KC_F1, KC_F10,
 // row E right (5 keys)
 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 // thumb cluster right
@@ -262,73 +302,7 @@ KC_TRNS, KC_TRNS,
 KC_TRNS,
 KC_TRNS, KC_TRNS, KC_TRNS
 )
-/*
- [NUMNAV] = LAYOUT_ergodox(
 
-    // row A left (7 keys)
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    // row A right (7 keys)
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    // row B left (has inner column) (7 keys)
-    KC_TRNS, KC_TRNS, KC_9, KC_8, KC_7, KC_W, KC_TRNS,
-    // row B right (has inner column) (7 keys)
-    KC_TRNS, KC_PGUP, KC_BSPC, KC_SPC, KC_DEL, RGUI(KC_TAB), KC_TRNS,
-    // row C left (no inner column) (6 keys)
-    KC_TRNS, KC_0, KC_6, KC_5, KC_4, KC_E,
-    // row C right (no inner column) (6 keys)
-    KC_ENT, KC_LEFT, KC_UP, KC_RGHT, KC_TAB, KC_TRNS,
-    // row D left (has inner column) (7 keys)
-    KC_TRNS, KC_TRNS, KC_3, KC_2, KC_1, LSFT(KC_Z), KC_TRNS,
-    // row D right (has inner column) (7 keys)
-    KC_TRNS, KC_PGDN, KC_HOME, KC_DOWN, KC_END, KC_PGDN, KC_TRNS,
-    // row E left (5 keys)
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    // row E right (5 keys)
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    // Thumb row F top left (2 keys)
-    KC_TRNS, KC_TRNS,
-    // Thumb row F top right (2 keys)
-    KC_TRNS, KC_TRNS,
-    // Thumb row G just the middle 1U keys (2 keys)
-    KC_TRNS, KC_TRNS,
-    // Thumb row H bottom left (mixed 2U 2U 1U) (3 keys)
-    KC_TRNS, KC_TRNS, KC_TRNS,
-    // Thumb row H bottom right (mixed 2U 2U 1U) (3 keys)
-    KC_TRNS, KC_TRNS, KC_TRNS),
-
- [KBFN] = LAYOUT_ergodox(
-
-    // row A left (7 keys)
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    // row A right (7 keys)
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    // row B left (has inner column) (7 keys)
-    KC_NO, KC_NO, KC_F7, KC_F8, KC_F9, KC_F12, KC_NO,
-    // row B right (has inner column) (7 keys)
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    // row C left (no inner column) (6 keys)
-    KC_NO, KC_CAPSLOCK, KC_NO, KC_NO, KC_MUTE, RESET,
-    // row C right (no inner column) (6 keys)
-    KC_NO, KC_NO, KC_F4, KC_F5, KC_F6, KC_F11,
-    // row D left (has inner column) (7 keys)
-    KC_TRNS, TG(MACOS), KC_NO, KC_NO, KC_VOLD, KC_NO, KC_NO,
-    // row D right (has inner column) (7 keys)
-    KC_NO, KC_NO, KC_F1, KC_F2, KC_F3, KC_F10, KC_NO,
-    // row E left (5 keys)
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    // row E right (5 keys)
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    // Thumb row F top left (2 keys)
-    KC_TRNS, KC_TRNS,
-    // Thumb row F top right (2 keys)
-    KC_TRNS, KC_TRNS,
-    // Thumb row G just the middle 1U keys (2 keys)
-    KC_TRNS, KC_TRNS,
-    // Thumb row H bottom left (mixed 2U 2U 1U) (3 keys)
-    KC_TRNS, KC_TRNS, KC_TRNS,
-    // Thumb row H bottom right (mixed 2U 2U 1U) (3 keys)
-    KC_TRNS, KC_TRNS, KC_TRNS),
-    */
 };
 
 /* void keyboard_post_init_user(void) { */
