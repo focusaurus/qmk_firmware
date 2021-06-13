@@ -219,7 +219,7 @@ KC_TRNS, KC_COMMA, KC_7, KC_8, KC_9, KC_W, KC_TRNS,
 // row C right (no inner column) (6 keys)
 KC_DOT, KC_4, KC_5, KC_6, KC_0, KC_TRNS,
 // row D right (has inner column) (7 keys)
-KC_TRNS, LSFT(KC_COLN), KC_1, KC_2, KC_3, KC_ENT, KC_TRNS,
+KC_TRNS, KC_COLON, KC_1, KC_2, KC_3, KC_ENT, KC_TRNS,
 // row E right (5 keys)
 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 // thumb cluster right
