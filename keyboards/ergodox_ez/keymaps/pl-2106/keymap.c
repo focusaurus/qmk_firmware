@@ -107,7 +107,7 @@ KC_D, KC_H, KC_T, KC_N, KC_S, KC_MINS,
 // row D right (has inner column) (7 keys)
 KC_VOLD, KC_B, KC_M, KC_W, KC_V, LT(BANG, KC_Z), KC_NO,
 // row E right (5 keys)
-KC_DEL, OSM(MOD_RSFT), OSM(MOD_LALT), OSM(MOD_RGUI), LGUI(LALT(KC_X)),
+OSM(MOD_RCTL), OSM(MOD_RSFT), OSM(MOD_LALT), OSM(MOD_RGUI), LGUI(LALT(KC_X)),
 // right thumb cluster (5 keys)
 KC_LEFT, KC_RIGHT,
 TG(EDIT),
