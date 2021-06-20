@@ -1,4 +1,4 @@
-/*
+/* 
  * Copyright 2021 Quentin LEBASTARD <qlebastard@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,33 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#pragma once
-#include "config_common.h"
-#define VENDOR_ID 0xA8F8
-#define PRODUCT_ID 0x1828
-#define DEVICE_VER 0x0001
-#define MANUFACTURER Bastard Keyboards
-#define PRODUCT TBK Mini
+#include QMK_KEYBOARD_H
 
-#define MATRIX_ROWS 3
-#define MATRIX_COLS 7
-#define RGBLIGHT_LIMIT_VAL 180
-#define MATRIX_ROW_PINS { B5, B4, E6 }
-#define MATRIX_COL_PINS { B6, B2, B3, B1, F7, F6, F5 }
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-#define DIODE_DIRECTION ROW2COL
-
-#define RGB_DI_PIN D2
-#define RGBLED_NUM 42
-#define RGBLED_SPLIT { 21, 21 }
-#define RGBLIGHT_ANIMATIONS
-
-#define DEBOUNCE 5
-
-#define SOFT_SERIAL_PIN D0
-
-#define LOCKING_SUPPORT_ENABLE
-#define LOCKING_RESYNC_ENABLE
-#define F_SCL 400000L
-#define USB_POLLING_INTERVAL_MS 1
-#define MASTER_RIGHT
+  [0] = LAYOUT_half(
+      KC_A, KC_B, KC_C, KC_D, KC_E, KC_F,
+      KC_G, KC_H, KC_I, KC_J, KC_K, KC_L,
+      KC_M, KC_N, KC_O, KC_P, KC_Q, KC_R,
+      KC_1, KC_2, KC_3
+  )
+};
