@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2021 Quentin LEBASTARD <qlebastard@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,11 +23,11 @@
 #define MANUFACTURER Bastard Keyboards
 #define PRODUCT TBK Mini
 
-#define MATRIX_ROWS 8
-#define MATRIX_COLS 6
+#define MATRIX_ROWS 3
+#define MATRIX_COLS 7
 #define RGBLIGHT_LIMIT_VAL 180
-#define MATRIX_ROW_PINS { B5, F7, F6, B6 }
-#define MATRIX_COL_PINS { B4, E6, C6, B1, B3, B2 }
+#define MATRIX_ROW_PINS { B5, B4, E6 }
+#define MATRIX_COL_PINS { B6, B2, B3, B1, F7, F6, F5 }
 
 #define DIODE_DIRECTION ROW2COL
 
